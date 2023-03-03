@@ -61,14 +61,14 @@
                         @if(!empty($addcomplaits))
                         @foreach($addcomplaits as $addcomp)
                         <tr>
-                           <td> {{$addcomp->id}}</td>
+                           <td>{{$addcomp->id}}</td>
                            <th>{{$addcomp->complaint_id}}</th>
                            <th>{{$addcomp->custom_name}}</th>
                            <th>{{$addcomp->custom_mobile}}</th>
                            <th>{{$addcomp->state}}</th>
                            <th>{{$addcomp->district}}</th>
-                           <th>{{$addcomp->type_brand}}</th>
-                           <th>{{$addcomp->type_model}}</th>
+                           <th>{{$addcomp->brand_name}}</th>
+                           <th>{{$addcomp->model_no}}</th>
                            <th>{{$addcomp->product_type}}</th>
                            <th>{{$addcomp->status}}</th>  
                         </tr>

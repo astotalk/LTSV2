@@ -319,7 +319,7 @@ Route::get('/', function () {
     Route::get('/Expense/Addexpense/', [ExpenseController::class,'addexpense'])->name('addexpense');
     Route::post('/Addexpense/addexpescestore/', [ExpenseController::class,'addexpescestore'])->name('addexpescestore');
     Route::get('/Expense/expensehistory/', [ExpenseHistoryController::class,'expensehistory'])->name('expensehistory');
-    Route::post('/expensehistory/getdatasearch/', [ExpenseHistoryController::class,'getdatasearch'])->name('getdatasearch');
+    Route::post('/expensehistory/getdatasearchdd/', [ExpenseHistoryController::class,'getdatasearchdd'])->name('getdatasearchdd');
 
     //////////////////////////////Delivery Callan ///////////////////////////////////////
 

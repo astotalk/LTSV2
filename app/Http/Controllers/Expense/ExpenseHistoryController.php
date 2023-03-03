@@ -30,7 +30,7 @@ class ExpenseHistoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getdatasearch(Request $request)
+    public function getdatasearchdd(Request $request)
     {
         // $year = $request->created_at->year;
         // $month = $request->created_at->month;

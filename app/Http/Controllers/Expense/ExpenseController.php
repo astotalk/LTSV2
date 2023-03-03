@@ -42,9 +42,7 @@ class ExpenseController extends Controller
          $paidcat  = $input['PaidCat'];
         $input['PaidCat'] = implode(',',$paidcat);
         Expense::create($input);
-        return redirect()->back()->with('status','Expense Has Been Create successfully');
-       
-        
+        return redirect()->back()->with('status','Expense Has Been Create successfully');  
     }
 
     /**

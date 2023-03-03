@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\AddServicenter;
 use App\Models\AddCallan;
 use App\Models\Addpart;
+use App\Helpers\Helpers;
 
 class DeliveryCallanController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -43,31 +44,29 @@ class DeliveryCallanController extends Controller
      */
     public function addcallanstore(Request $request)
     {
-
-
-
     //   echo "<pre>"; print_r($request->all()); 
     //     die('');
+            $input = $request->all();
+            $challan_id =  Helpers::IDGenerators(new Addcallan, 'challan_id', 6, 'CHA');
 
- 
-  
-        $input = $request->all();
-        $remark  = $input['remark'];
-        $input['remark'] = implode(',',$remark);
-        $unitrate  = $input['unitrate'];
-        $input['unitrate'] = implode(',',$unitrate);
-        $part_name  = $input['part_name'];
-        $input['part_name'] = implode(',',$part_name);
-        $quantity  = $input['quantity'];
-        $input['quantity'] = implode(',',$quantity);
-        $gst  = $input['gst'];
-        $input['gst'] = implode(',',$gst);
-        $value  = $input['value'];
-        $input['value'] = implode(',',$value);
-        AddCallan::create($input);
-     
+           $input->$challan_id = $challan_id;
+            
+         
+            $remark  = $input['remark'];
+            $input['remark'] = implode(',',$remark);
+            $unitrate  = $input['unitrate'];
+            $input['unitrate'] = implode(',',$unitrate);
+            $part_name  = $input['part_name'];
+            $input['part_name'] = implode(',',$part_name);
+            $quantity  = $input['quantity'];
+            $input['quantity'] = implode(',',$quantity);
+            $gst  = $input['gst'];
+            $input['gst'] = implode(',',$gst);
+            $value  = $input['value'];
+            $input['value'] = implode(',',$value);
 
-        return redirect()->back()->with('status','AddCallan  Has Been Create successfully');
+            AddCallan::create($input);
+            return redirect()->back()->with('status','AddCallan  Has Been Create successfully');
        
     }
 
@@ -80,7 +79,6 @@ class DeliveryCallanController extends Controller
     public function GetSfDetail(Request $request ,$val)
 
     {
-
         $addservicenter = AddServicenter::find($val); 
         return response()->json($addservicenter);
          

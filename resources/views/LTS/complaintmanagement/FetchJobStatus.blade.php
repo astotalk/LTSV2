@@ -212,7 +212,7 @@
                         <label for="formGroupExampleInput2">Remark <span style="color: red">*</span></label>
                         <input type="text" class="form-control" id="Remark" name="Remark" placeholder="Remark" required="" fdprocessedid="y02hl">
                     </div>
-                </td>
+                </td> 
             </tr>
         </tbody></table>
         <button type="submit" class="btn btn-primary mb-2" name="PartNotAvailable" id="PartNotAvailable" fdprocessedid="4k27e">Submit</button>

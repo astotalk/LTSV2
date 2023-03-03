@@ -11,7 +11,7 @@ use App\Models\Company;
 use App\Models\Addbrand;
 use App\Models\AddModelNumber;
 use Carbon\Carbon;
-
+use App\Helpers\Helper;
 
 
 class AddcomplaintController extends Controller
@@ -25,6 +25,7 @@ class AddcomplaintController extends Controller
     {
         $company = Company::all();
       
+        
         $addbrandlist['data'] = Addbrand::orderby("id","asc")->select('id','brand_name')->get();
         $search = $request['search'] ?? "";
         if($search != ""){
@@ -69,7 +70,7 @@ class AddcomplaintController extends Controller
        
         }
         else{
-            echo 'NA';
+            echo 'Pin Noth Fount';
         }
 
     }
@@ -86,7 +87,7 @@ class AddcomplaintController extends Controller
         //     die('');
       
             $addcomp  = new AddComplaint;
-
+            $complaint_id =  Helper::IDGenerator(new AddComplaint, 'complaint_id', 5, 'RAP');
             $dates =   new Carbon($request['dates']);
             $date =   new Carbon($request['date']);
             $interval = date_diff($dates, $date)->format('%a');
@@ -100,8 +101,10 @@ class AddcomplaintController extends Controller
             $addcomp->brand_name = $request->input('brand_name');
             $addcomp->model_no = $request->input('model_no');
 
+     
+            $addcomp->complaint_id = $complaint_id;
+
             $addcomp->custom_name = $request->input('custom_name');
-            $addcomp->complaint_id = $request->input('complaint_id');
             $addcomp->custom_mobile = $request->input('custom_mobile');
             $addcomp->other_mobile = $request->input('other_mobile');
             $addcomp->custom_address = $request->input('custom_address');

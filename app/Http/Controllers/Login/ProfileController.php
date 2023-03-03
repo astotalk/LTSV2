@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Designation;
+use App\Models\Company;
 
 class ProfileController extends Controller
 {
@@ -14,7 +16,10 @@ class ProfileController extends Controller
      */
     public function dashboard()
     {
-        return  view('LTS.dashboard');
+
+        $company = Company::all();
+
+        return  view('LTS.dashboard',compact('company'));
     }
 
 

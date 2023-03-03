@@ -30,23 +30,20 @@
                   <div class="row g-3">
                   <Form    action="{{route('addstore')}}"  method="POST" >
                       @csrf
-                      <div class="col-12">
-                        <label for="text" class="form-label">Complaint Id <span style="color: red">*</span></label>
-                         <input type="text" class="complaint_id form-control" name="complaint_id"  required>
-                     </div>
+                      
                      <div class="col-12">
                         <label for="text" class="form-label">Customer Name <span style="color: red">*</span></label>
                          <input type="text" class="custom_name form-control" name="custom_name"  required>
-                     </div>
+                     </div><br>
                      <div class="col-12">
                         <label for="text" class="form-label">Customer Phone no. <span style="color: red">*</span></label>
                          <input type="text" class="custom_mobile form-control"  maxlength="10" name="custom_mobile"   required>
-                     </div>
+                     </div><br>
 
                      <div class="col-12">
                         <label for="text" class="form-label">Other Phone no. <span style="color: red">*</span></label>
                          <input type="text" class="other_mobile form-control"  maxlength="10"name="other_mobile"  required>
-                     </div>
+                     </div><br>
 
                      <div class="col-12">
                         <label for="text" class="form-label">Customer Address<span style="color: red">*</span></label>

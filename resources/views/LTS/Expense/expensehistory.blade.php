@@ -16,7 +16,7 @@
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper full-page-wrapper">
                 <div class="col-md-12 grid-margin stretch-card">
-                    <form action="{{route('getdatasearch')}}" method="POST">
+                    <form action="{{route('getdatasearchdd')}}" method="POST">
                         @csrf
                         <div class="card">
                             <div class="card-body">

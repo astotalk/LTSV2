@@ -1335,13 +1335,13 @@
                                 <td width="159" bgcolor="#FFFFFF" height="18"><font face="Verdana" style="font-size: 9pt"><b>&nbsp;Status * :</b></td>
                                 <td width="318" bgcolor="#FFFFFF" height="18" colspan="2"><font face="Verdana" style="font-size: 9pt">
                                 
-                                    <select  id="ProductLocation" name="ProductLocation" required="" onclick="JobStatus(this.value)">
+                                    <select  id="ProductLocation" name="ProductLocation[]" required=""   onclick="JobStatus(this.value)">
                                             
                                                                                         <option selected disabled>Select</option>
                                                                                         <option value="updateremark">Update Remark</option>
                                                                                         <option  hidden="hidden" value="1">Open</option>
                                                                                         <option value="Allotted">Allotted</option>
-                                                                                        <option value="3">Appointment</option>
+                                                                                        <option value="Appointment">Appointment</option>
                                                                                         <option value="4">Part Pending</option>
                                                                                         <option value="5">Part Dispatch</option>
                                                                                         <option value="6">Part Not Available</option>
@@ -1557,7 +1557,6 @@
                   $('#type_complaint1').text(data.type_complaint);
                   $('#remark1').text(data.remark);
                   $('#status1').text(data.status);
-                  
                   $('#id').text(data.id);
                   $('#eng_name1').text(data.eng_name);
                   $('#phone').text(data.phone);
@@ -1567,12 +1566,17 @@
                })
             }); 
          });
-        
 
     function JobStatus() {
         var ProductLocation = document.getElementById("ProductLocation");
         var AddPartDiv = document.getElementById("AddPartDiv");
-        AddPartDiv.style.display = ProductLocation.value == "visit","updateremark" ?  "block" : "none";
+        AddPartDiv.style.display = ProductLocation.value == "visit" ?  "block" : "none";
+
+        var ProductLocation = document.getElementById('ProductLocation');
+                var values = ["visit", "updateremark", "Appointment"];
+                for (var i = 0; i < ProductLocation.options.length; i++) {
+                    ProductLocation.options[i].selected = values.indexOf(ProductLocation.options[i].value) >= 0;
+                }
        
     }
    

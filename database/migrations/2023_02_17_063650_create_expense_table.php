@@ -23,6 +23,8 @@ class CreateExpenseTable extends Migration
             $table->string('transaction');
             $table->string('paid_by');
             $table->string('remark');
+            $table->integer('delivery_id');
+            
 
 
             $table->timestamps();

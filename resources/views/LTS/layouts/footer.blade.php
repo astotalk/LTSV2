@@ -40,7 +40,7 @@
 
 <div class="container-fluid1">
    <div class="footer">
-         <p style="margin-right: 509px;color:white;margin-left: 13px;">Copyright © 2018 Designed by html.design. All rights reserved.<br>
+         <p style="margin-right: 509px;color:white;margin-left: 13px;">Copyright © 2023 Designed by html.design. All rights reserved.<br>
             Distributed By: </p>
        
    </div>
@@ -100,6 +100,10 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+
+
+
 
 <script type="text/javascript">
     // To make Pace works on Ajax calls

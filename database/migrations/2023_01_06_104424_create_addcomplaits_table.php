@@ -36,7 +36,7 @@ class CreateAddcomplaitsTable extends Migration
             $table->string('company_detail');
             $table->string('remark');
             $table->string('status');
-            $table->string('complaint_id');
+            $table->text('complaint_id');
             $table->timestamps();
         });
     }

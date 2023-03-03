@@ -23,6 +23,7 @@ class CreateDeliverycallanTable extends Migration
             $table->string('gst');
             $table->string('value');
             $table->string('callan_date');
+            $table->text('challan_id');
             $table->timestamps();
         });
     }

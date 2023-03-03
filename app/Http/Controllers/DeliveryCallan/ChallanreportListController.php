@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\AddServicenter;
 use App\Models\AddCallan;
 use App\Models\Addpart;
+
+use App\Models\Expense;
 use DB;
 
 class ChallanreportListController extends Controller
@@ -19,20 +21,15 @@ class ChallanreportListController extends Controller
 
      public function Challanreport(Request $request)
      {
-       
       
-             $search = $request['search'] ?? "";
-             if($search != ""){
-     
-                 $deliverycallan = AddCallan::where('service_center_name', 'LIKE', "%$search%")->get();
-             }else{
-     
-                 $deliverycallan  = null;
-             }
+      
+        $deliverycallan = null;
+        
+        //   dd($deliverycallan);
                  
-             $data =compact('deliverycallan','search');
+          
      
-             return  view('LTS.DeliveryCallan.Challanreport')->with($data);
+             return  view('LTS.DeliveryCallan.Challanreport',compact('deliverycallan'));
      
          }
 
@@ -43,9 +40,10 @@ class ChallanreportListController extends Controller
      */
     public function getdatasearch(Request $request)
     {
-       $addservicenter  = Addservicenter::all();
-        $deliverycallan = DB::table('deliverycallan')->whereBetween('callan_date',[$request->todate,$request->fromdate])->get();
-         return view('LTS.DeliveryCallan.Challanreport', ['deliverycallan'=> $deliverycallan, 'addservicenter'=>$addservicenter]);
+           $addservicenter  = Addservicenter::all();
+               $deliverycallan = DB::table('deliverycallan')->whereBetween('callan_date',[$request->todate,$request->fromdate])->get();
+             
+                return view('LTS.DeliveryCallan.Challanreport', ['deliverycallan'=> $deliverycallan, 'addservicenter'=>$addservicenter]);
     }
 
     /**

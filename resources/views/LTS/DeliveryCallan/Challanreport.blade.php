@@ -71,8 +71,7 @@
                                             <th>{{$addcallan->remark}}</th>
                                             <th>{{$addcallan->part_name}}</th>
                                             <th>{{$addcallan->quantity}}</th>
-                                           
-                                            <th></th>
+                                           <th></th>
                                             <th></th>
                                             
                                             <td>
