@@ -14,85 +14,81 @@
                            </div>
                      </div>
 <div class="container py-5">
-<div class="row">
-<div class="col-md-12 mt-3">
-   @if(session('status'))
-   <div class="alert alert-success">{{session('status')}}</div>
-   @endif
-<div id="success_message"></div>
-<div class="card">
-<div class="card-header">
-  <!-- SEARCH BY TASK START -->
-    <nav class="navbar navbar-light bg-light">
-      <form   action="" class="form-inline col-md-9">
-          <a class="btn btn-danger text-white" href="{{ route('dashboard') }}" role="button">Back</a> &nbsp;&nbsp;
-         <input  type="search"  name="search" id="" class="form-control" placeholder="Search name"  value= "{{$search}}">
-         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-   </form>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-      + Add Product Details
-      </button>
-</div>
-<div class="card-body">
-   <table class="table table-bordered">      
-            <thead class="thead-dark">
-            <tr>
-              <th><b>S.No.</b></th>
-              <th><b>Product Name / Model Number</b></th> 
-              <th><b>Category</b></th>
-              <th><b>Brand Name</b></th> 
-              <th><b>Price</b></th>
-              <th><b>Status</b></th>
-               <th><b>Image</b></th>
-               <th style="width:150px">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              @if(!empty($product))
-              @foreach($product as $product_id)
-              <tr>
-             
-                  <td>{{$product_id->id}}</td>
-                  <th>{{$product_id->product_model_name}}</th>
-                  <th>{{$product_id->name}}</th>
-                  <th>{{$product_id->brand_name}}</th>
-                  <th>{{$product_id->price}}</th>
-                 <th>
-                  <?php if($product_id->status == '1'){ ?>
-                     <label for=""  class="btn btn-success">Active</label>
-                      <?php }else { ?>
-                        <label for=""  class="btn btn-warning">De-active</label>
-                        <?php  } ?>
-                 </th>
+                  <div class="row">
+                        <div class="col-md-12 mt-3">
+                                @if(session('status'))
+                                  <div class="alert alert-success">{{session('status')}}</div>
+                                 @endif
+                        <div id="success_message"></div>
+                           <div class="card">
+                              <div class="card-header">
+                  <!-- SEARCH BY TASK START -->
+                      <nav class="navbar navbar-light bg-light">
+                              <form   action="" class="form-inline col-md-9">
+                                 <a class="btn btn-danger text-white" href="{{ route('dashboard') }}" role="button">Back</a> &nbsp;&nbsp;
+                                 <input  type="search"  name="search" id="" class="form-control" placeholder="Search name"  value= "{{$search}}">
+                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                           </form>
+                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                 + Add Product Details
+                                 </button>
+                                    </div>
+                                       <div class="card-body">
+                                          <table class="table table-bordered">      
+                                                   <thead class="thead-dark">
+                                                   <tr>
+                                                   <th><b>S.No.</b></th>
+                                                   <th><b>Product Name / Model Number</b></th> 
+                                                   <th><b>Category</b></th>
+                                                   <th><b>Brand Name</b></th> 
+                                                   <th><b>Price</b></th>
+                                                   <th><b>Status</b></th>
+                                                      <th><b>Image</b></th>
+                                                      <th style="width:150px">Action</th>
+                                                   </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                   @if(!empty($product))
+                                                   @foreach($product as $product_id)
+                                                   <tr>
+                                                   
+                                                         <td>{{$product_id->id}}</td>
+                                                         <th>{{$product_id->product_model_name}}</th>
+                                                         <th>{{$product_id->category_name}}</th>
+                                                         <th>{{$product_id->brand_name}}</th>
+                                                         <th>{{$product_id->price}}</th>
+                                                      <th>
+                                                         <?php if($product_id->status == '1'){ ?>
+                                                            <label for=""  class="btn btn-success">Active</label>
+                                                            <?php }else { ?>
+                                                               <label for=""  class="btn btn-warning">De-active</label>
+                                                               <?php  } ?>
+                                                      </th>
 
-                  <td>
-                     <img src="{{ asset('lts_assets/images/landing_page/'.$product_id->upload_image)}}" width="70px" alt="Image">
-                  </td>
-                  <td>
-                     <button type="button"   data-url="{{ url('/product/show', $product_id->id) }}" id="show-user"  class="btn btn-success showbtn btn-sm">View</button>                 
-                    <button type="button"  value="{{$product_id->id}}" class="btn btn-primary editbtn btn-sm">Edit</button><br>
-                   
-                
-                  
-                  </tr>
-              @endforeach
-              @endif 
-            </tbody>
-           </table>
-           {{$product->links()}}
-  </div>
-
-  </div>
-  </div>
-  <!--------Card close-->
-  </div>
-  </div>
-  </div>
-  <!--------Container close-->
-  </div>
-  </div>
-  <!--row close-->
-  </div>
+                                                         <td>
+                                                            <img src="{{ asset('lts_assets/images/landing_page/'.$product_id->upload_image)}}" width="70px" alt="Image">
+                                                         </td>
+                                                         <td>
+                                                            <button type="button"   data-url="{{ url('/product/show', $product_id->id) }}" id="show-user"  class="btn btn-success showbtn btn-sm">View</button>                 
+                                                         <button type="button"  value="{{$product_id->id}}" class="btn btn-primary editbtn btn-sm">Edit</button><br>
+                                                         
+                                                      
+                                                         
+                                                         </tr>
+                                                   @endforeach
+                                                   @endif 
+                                                   </tbody>
+                                                </table>
+                                                   {{$product->links()}}
+                                     </div>
+                                 </div>
+                              </div>
+                           </div>
+                      </div>
+                  </div>
+             </div>
+          </div>
+      </div>
   </div>
 <!-- The Modal -->
 
@@ -108,17 +104,17 @@
        <div class="modal-body">
           <div class="form-group">
                <label for="inputproduct" class="form-label">Category</label>
-               <select name="name" class="name form-control"  id="name" data-live-search="true"  data-size="8" tabindex="null">
+               <select name="category_name" class="category_name form-control"  id="category_name" data-live-search="true"  data-size="8" tabindex="null">
                   <option value='0'>-- Select category --</option>
-                  @foreach($categorylist['data']   as $name)
-                   <option value="{{$name->name}}">{{$name->name}}</option>
+                  @foreach($categorylist['data']   as $category_name)
+                   <option value="{{$category_name->category_name}}">{{$category_name->category_name}}</option>
                   @endforeach
                   </select>
            </div><br>
            <div class="form-group">
             <label for="formGroupExampleInput">Brand <span style="color: red">*</span></label>
             <select name="brand_name" class="brand_name form-control"  id="brand_name" data-live-search="true"  data-size="8" tabindex="null" required/>
-               <option value='0'>-- Select Brand --</option>
+            <option value='0'>-- Select Brand --</option>
             </select>
           </div><br>
        
@@ -223,10 +219,10 @@
           <div class="modal-body">
              <div class="form-group">
                   <label for="inputproduct" class="form-label">Category</label>
-                  <select name="name" class="name form-control"  id="name1" data-live-search="true"  data-size="8" tabindex="null">
+                  <select name="category_name" class="category_name form-control"  id="category_name1" data-live-search="true"  data-size="8" tabindex="null">
                      <option value='0'>-- Select category --</option>
-                        @foreach($categorylist['data'] as $name)
-                          <option value="{{$name->name}}">{{$name->name}}</option>
+                        @foreach($categorylist['data'] as $category_name)
+                          <option value="{{$category_name->category_name}}">{{$category_name->category_name}}</option>
                          @endforeach
                      </select>
               </div>
@@ -291,17 +287,19 @@
           <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
           <input type="submit" class="btn btn-info" value="Update">
           </div>
-       </form>
-       </div>
+         </form>
       </div>
-      </div>
+   </div>
+</div>
        
  @endsection
  @section('scripts')
 <script type="text/javascript">
- $(document).ready(function(){          
- // Client Change
-$('#name').change(function(){
+$(document).ready(function(){ 
+
+
+
+   $('#category_name').change(function(){
 
 // Client id
 var id = $(this).val();
@@ -315,7 +313,7 @@ $.ajaxSetup({
            });
 // AJAX request 
 $.ajax({
-  url: '/product/categorychangedata/'+id,
+   url: '/product/categorychangedata/'+id,
   type: "GET",
   dataType: 'json',
   success:function(response){
@@ -324,6 +322,9 @@ $.ajax({
     if(response['data'] != null){
        len = response['data'].length;
     }
+
+
+
     if(len > 0){
        // Read data and create <option >
        for(var i=0; i<len; i++){
@@ -341,6 +342,8 @@ $.ajax({
   }
 });
 });
+
+
 /* When click show user */
 $('body').on('click', '#show-user', function () {
           var userURL = $(this).data('url');
@@ -348,7 +351,7 @@ $('body').on('click', '#show-user', function () {
               $('#userShowModal').modal('show');
               $('#id').text(data.id);
               $('#product_model_name').text(data.product_model_name);
-              $('#name1').text(data.name);
+              $('#category_name1').text(data.category_name);
               $('#brand_name1').text(data.brand_name);
               $('#price').text(data.price);
               $('#inventory1').text(data.inventory);
@@ -376,7 +379,7 @@ $('body').on('click', '#show-user', function () {
                // console.log($response);
                $('#pro_id').val(response.product.id);
                $('#product_model_name1').val(response.product.product_model_name)   
-               $('#name1').val(response.product.name)    
+               $('#category_name1').val(response.product.category_name)    
                $('#brand_name1').val(response.product.brand_name);
                $('#price1').val(response.product.price)   
                $('#inventory1').val(response.product.inventory)   
@@ -388,7 +391,6 @@ $('body').on('click', '#show-user', function () {
             });
                   
          });  
- 
- });
+      });
  </script>
   @endsection

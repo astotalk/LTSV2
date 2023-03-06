@@ -1335,13 +1335,13 @@
                                 <td width="159" bgcolor="#FFFFFF" height="18"><font face="Verdana" style="font-size: 9pt"><b>&nbsp;Status * :</b></td>
                                 <td width="318" bgcolor="#FFFFFF" height="18" colspan="2"><font face="Verdana" style="font-size: 9pt">
                                 
-                                    <select  id="ProductLocation" name="ProductLocation[]" required=""   onclick="JobStatus(this.value)">
+                                    <select  id="ProductLocation" name="ProductLocation" required=""   onclick="JobStatus(this.value)">
                                             
                                                                                         <option selected disabled>Select</option>
                                                                                         <option value="updateremark">Update Remark</option>
                                                                                         <option  hidden="hidden" value="1">Open</option>
                                                                                         <option value="Allotted">Allotted</option>
-                                                                                        <option value="Appointment">Appointment</option>
+                                                                                        <option value ="Appointment">Appointment</option>
                                                                                         <option value="4">Part Pending</option>
                                                                                         <option value="5">Part Dispatch</option>
                                                                                         <option value="6">Part Not Available</option>
@@ -1381,9 +1381,7 @@
                                                             <tfoot>
                                                                 <tr>
                                                                     <td>
-                                                                        <div id="AddPartDiv"> 
-
-                                                                          
+                                                                        <div class="updateremark" id="result"  > 
                                                                             <center><h3>Update Visit Done</h3></center>
                                                                             <form action="{{route('visitdonestore')}}"  method="post">
                                                                                @csrf
@@ -1404,7 +1402,6 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                        
                                                                                         <td>
                                                                                             <div class="form-group">
                                                                                                 <label for="formGroupExampleInput2">Remark <span style="color: red">*</span></label>
@@ -1419,24 +1416,67 @@
                                                                                                     <option value="YES">YES</option>
                                                                                                     <option value="NO">NO</option>
                                                                         
-                                                                                                </select>
+                                                                                              </select>
+                                                                                           </div>  
+                                                                                         </td>
+                                                                                       </tr>
+                                                                                    </tbody></table>
+                                                                                 <button type="submit" class="btn btn-primary mb-2" name="VisitDone" id="VisitDone" fdprocessedid="3fbgw">Submit</button>
+                                                                             </form>
+                                                                         </div>
+                                                                         <div class="result" id="Allotted" > 
+                                                                            <center><h3>Update Visit Done</h3></center>
+                                                                            <form action="{{route('visitdonestore')}}"  method="post">
+                                                                               @csrf
+                                                                                <input type="text" id="ComplaintID" name="ComplaintID" value="18601" hidden="hidden">
+                                                                                <table class="table table-striped table-bordered">
+                                                                                    <tbody><tr>
+                                                                                        <td>
+                                                                                            <div class="form-group">
+                                                                                                <label for="formGroupExampleInput2">Engineer Name <span style="color: red">*</span></label>
+                                                                                                <input type="text" class="EngineerName form-control" id="EngineerName" name="EngineerName" placeholder="Engineer Name" required="" fdprocessedid="atwbdg">
                                                                                             </div>
-                                                                                            
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group">
+                                                                                                <label for="formGroupExampleInput2">One Side KM <span style="color: red">*</span></label>
+                                                                                                <input type="number" class="OneSideKM form-control" id="OneSideKM" name="OneSideKM" required="" fdprocessedid="xuc4g8">
+                                                                                            </div>
                                                                                         </td>
                                                                                     </tr>
-                                                                                </tbody></table>
-                                                                                <button type="submit" class="btn btn-primary mb-2" name="VisitDone" id="VisitDone" fdprocessedid="3fbgw">Submit</button>
-                                                                            </form>
-                                                                        </div>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-group">
+                                                                                                <label for="formGroupExampleInput2">Remark <span style="color: red">*</span></label>
+                                                                                                <input type="text" class="Remark form-control" id="Remark" name="Remark" placeholder="Remark" required="" fdprocessedid="3eti8o">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group">
+                                                                                                <label for="formGroupExampleInput">Customer Conformation <span style="color: red">*</span></label>
+                                                                                                <select class="CustomerConformation form-control" id="CustomerConformation" name="CustomerConformation" required="" fdprocessedid="un2hfe">
+                                                                                                    <option selected="" disabled="">Select</option>
+                                                                                                    <option value="YES">YES</option>
+                                                                                                    <option value="NO">NO</option>
                                                                         
-                                                                    </td>
-                                                                </tr>
+                                                                                              </select>
+                                                                                           </div>  
+                                                                                         </td>
+                                                                                       </tr>
+                                                                                    </tbody></table>
+                                                                                 <button type="submit" class="btn btn-primary mb-2" name="VisitDone" id="VisitDone" fdprocessedid="3fbgw">Submit</button>
+                                                                             </form>
+                                                                         </div>
+                                                                         <div class="result" id = "Appointment" style ="display:none;">
+                                                                            <li class ="bigfield"><input placeholder="Agent1" type="text"
+                                                                                 name="name" id="name" disabled="disabled"/></li>
+                                                                       </div>
+                                                                      </td>
+                                                                    </tr>
                                                                 </tfoot>
                                                             </TABLE>
-                        
-                                                        </center>
-                                                    </div>
-                        
+                                                         </center>
+                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1489,7 +1529,7 @@
                            <th>{{$addcomplait->brand_name}}</th>
                            <th>{{$addcomplait->model_no}}</th> 
                         
-                           <td>{{ date('M d, Y h:i A', strtotime($addcomplait->created_at)) }}</td>
+                           <td>{{date('M d, Y h:i A', strtotime($addcomplait->created_at)) }}</td>
                            <td>
                               <div class="dropdown">
                              
@@ -1567,19 +1607,15 @@
             }); 
          });
 
-    function JobStatus() {
-        var ProductLocation = document.getElementById("ProductLocation");
-        var AddPartDiv = document.getElementById("AddPartDiv");
-        AddPartDiv.style.display = ProductLocation.value == "visit" ?  "block" : "none";
-
-        var ProductLocation = document.getElementById('ProductLocation');
-                var values = ["visit", "updateremark", "Appointment"];
-                for (var i = 0; i < ProductLocation.options.length; i++) {
-                    ProductLocation.options[i].selected = values.indexOf(ProductLocation.options[i].value) >= 0;
-                }
+       function JobStatus(Status) {
+        $("div.result").hide();
+             $("select#ProductLocation").change(function(){
+                var selectedVal = $(this).val();
+                   $("div.result").hide();
+                    $("div#"+selectedVal).show(); 
+                    });
        
     }
-   
     // function JobStatus(Status){
     //     var ComplaintID = document.getElementById('ComplaintID').value;
     //     var ModelNO = document.getElementById('ModelNO').value;

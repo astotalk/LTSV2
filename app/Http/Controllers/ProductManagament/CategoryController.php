@@ -62,7 +62,7 @@ class CategoryController extends Controller
 
         $category  = new Category;
                   
-        $category->category = $request['category'];
+        $category->category_name = $request['category_name'];
         $category->save();
 
         return redirect()->back()->with('status','Category Has Been Create successfully');
@@ -115,7 +115,7 @@ class CategoryController extends Controller
         $cate_id = $request->input('cate_id');
 
         $category = Category::find($cate_id); 
-        $category->category = $request->input('category');
+        $category->category_name = $request->input('category_name');
 
         $category->update(); 
         return redirect()->back();

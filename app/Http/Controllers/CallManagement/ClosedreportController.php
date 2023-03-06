@@ -131,7 +131,7 @@ class ClosedreportController extends Controller
             $update->date = $request->input('date');
             $update->remark = $request->input('remark');
             $update->update(); 
-            return redirect()->back();
+            return redirect()->back();   
         
     }
 

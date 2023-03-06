@@ -8,7 +8,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\AddModelNumber;
 use App\Models\Addbrand;
-use Illuminate\Support\Facades\DB;
+
+use DB;
 
 class ProductController extends Controller
 {
@@ -20,8 +21,10 @@ class ProductController extends Controller
         public function product(Request $request){ 
            
 
-            $addbroad = Addbrand::all();
-            $categorylist['data'] = Category::orderby("id","asc")->select('id','name')->get();
+            $addbrand = Addbrand::all();
+           
+        
+            $categorylist['data'] = Category::orderby("id","asc")->select('id','category_name')->get();
          
             $search = $request['search'] ?? "";
             if($search != ""){
@@ -34,20 +37,19 @@ class ProductController extends Controller
      
             }
                 
-            $data =compact('product','search','categorylist','addbroad');
+            $data =compact('product','search','categorylist','addbrand');
     
             return view('LTS.ProductMangament.product')->with($data);
     }
 
-    public function categorychangedata(Request $request, $nameid=0)
+    public function categorychangedata(Request $request, $category_nameid=0)
 
     {
+        $addbrand['data'] = Addbrand::orderby("id","asc")->select('id','brand_name')->where('id','category_name',$category_nameid)->get();
+        return response()->json($addbrand); 
 
-        $addbroad['data'] = Addbrand::orderby("id","asc")->select('id','brand_name')->where('id','name',$nameid)->get();
-        return response()->json($addbroad);  
+        dd($addbrand);
     }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -55,11 +57,8 @@ class ProductController extends Controller
      */
     public function show(Request $request, $id)
     {
-
         $product = Product::find($id);
-
         return response()->json($product);
-       
     }
         
 
@@ -96,6 +95,7 @@ class ProductController extends Controller
         }
         $product->save(); 
         return redirect()->back()->with('status','Product Has Been Added successfully');
+
     }
 
     /**

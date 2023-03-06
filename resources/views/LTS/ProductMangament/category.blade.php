@@ -55,7 +55,7 @@
         @foreach($category as $cate_product)
                <tr> 
               <th>{{$cate_product->id}}</th>
-              <th>{{$cate_product->name}}</th>
+              <th>{{$cate_product->category_name}}</th>
                 <td>
                 <button type="button"  value="{{$cate_product->id}}" data-bs-toggle="modal" class="btn btn-warning editbtn btn-sm">Edit</button> ||
                 <button type="button"  value="{{$cate_product->id}}"   class="btn btn-danger deleteemployeeBtn">Delete</button></td>
@@ -101,7 +101,7 @@
        <div class="modal-body">			
              <div class="form-group">
                    <label>Category <span style="color: red">*</span></label>
-                   <input type="text" name="name" id="name" class="form-control" placeholder="Enter Category" required>
+                   <input type="text" name="category_name" id="category_name" class="category_name form-control" placeholder="Enter Category" required>
              </div>
                 
        </div>
@@ -159,11 +159,11 @@
     <div class="modal-body">
           <div class="form-group">
                 <label>Category <span style="color: red">*</span></label>
-                <input type="text" class="name form-control" name="name" id="name" value="{{old('name')}}" required/> 
+                <input type="text" class="category_name form-control" name="nacategory_nameme" id="category_name" value="{{old('category_name')}}" required/> 
              </div>
              <span class="text-danger">
-               @if ($errors->has('name'))
-               <small class="error">{{ $errors->first('name') }}</small>
+               @if ($errors->has('category_name'))
+               <small class="error">{{ $errors->first('category_name') }}</small>
                @endif
                      </span>
     </div>
@@ -207,7 +207,7 @@
                       success: function (response){
                         //console.log("Hello world!");
                       $('#cate_id').val(response.category.id);
-                      $('#name').val(response.category.name);          
+                      $('#category_name').val(response.category.category_name);          
 
 }
 
