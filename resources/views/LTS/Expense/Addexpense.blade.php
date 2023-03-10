@@ -34,7 +34,7 @@
                                     
                                     </div>  
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                        + Add Employee
+                                        + Add Expense
                                     </button>   
                                 </div>
                                 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -43,7 +43,7 @@
                                         <Form  action="{{route('addexpescestore')}}" method="post" id="savefrom_errList">
                                             @csrf
                                               <div class="modal-header">
-                                                          <h5 class="modal-title" id="myModalLabel">Add Employee</h5>
+                                                          <h5 class="modal-title" id="myModalLabel">Add Expense</h5>
                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="model-body">
