@@ -87,7 +87,7 @@ class AddcomplaintController extends Controller
         //     die('');
       
             $addcomp  = new AddComplaint;
-            $complaint_id =  Helper::IDGenerator(new AddComplaint, 'complaint_id', 5, 'RAP');
+            $complaint_id =  Helper::IDGenerator(new AddComplaint, 'complaint_id', 5, 'LTS');
             $dates =   new Carbon($request['dates']);
             $date =   new Carbon($request['date']);
             $interval = date_diff($dates, $date)->format('%a');

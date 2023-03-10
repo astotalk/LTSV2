@@ -19,11 +19,13 @@ class pendingcallreportController extends Controller
     public function pendingcallreport(Request  $request)
     {
         $Company = Company::all();
-
+         $addcomplaitssa = AddComplaint::all();
         $dates =   new Carbon($request['dates']);
         $date =   new Carbon($request['date']);
         $attenda =  $dates->diff($date)->format('%D:%M:%Y');
         
+      
+         
         $search = $request['search'] ?? "";
        
         if($search != ""){
@@ -33,10 +35,13 @@ class pendingcallreportController extends Controller
            
         }else{
            
-            $addcomplaits = AddComplaint::paginate(5);
+            $addcomplaits = DB::table('addcomplaits')
+            ->join('visitstore', 'addcomplaits.id', '=', 'visitstore.id')
+            ->select('addcomplaits.*', 'visitstore.EngineerName','visitstore.OneSideKM' )
+            ->get();
         }
             
-        $data =compact('addcomplaits','search','Company','attenda');
+        $data =compact('addcomplaits','search','Company','attenda','addcomplaitssa');
          //echo "<pre>"; print_r($data); 
         return view('LTS.complaintmanagement.pendingcallreport')->with($data);  
     }

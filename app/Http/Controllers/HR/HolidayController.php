@@ -21,7 +21,7 @@ class HolidayController extends Controller
         $holidays = Holiday::where('occasion', 'LIKE', "%$search%")->get();
     }else{
 
-        $holidays = Holiday::paginate(3);
+        $holidays = Holiday::all();
        
     }
         

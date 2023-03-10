@@ -151,7 +151,7 @@
       <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
-            <Form    action="{{route('addstore')}}"  method="POST" >
+            <Form    action="{{route('addstoress')}}"  method="POST" >
  @csrf
                   <div class="modal-header">New Designation</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

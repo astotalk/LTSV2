@@ -26,7 +26,7 @@ class AddComplaint extends Model
         'state',
         'type_complaint',
         'date',
-        'type_brand',
+        'brand_name',
         'type_model',
         'warrenty_number', 
         'product_type',

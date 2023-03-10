@@ -50,7 +50,7 @@ class DesigantionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function addstore(Request $request)
+    public function addstoress(Request $request)
     {
         $request  ->validate([
             'desigantion' => 'required',

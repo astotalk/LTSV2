@@ -26,7 +26,7 @@ class LeaveController extends Controller
             $leaves = Leave::where('name', 'LIKE', "%$search%")->get();
         }else{
           
-            $leaves = Leave::paginate(3);
+            $leaves = Leave::all();
 
         }
             
@@ -58,8 +58,13 @@ class LeaveController extends Controller
            //    echo "<pre>"; print_r($request->all()); 
             // die('');
             $leaves  = new Leave;
-            $leaves->name = $request['name'];
-            $leaves->department = $request['department'];
+
+            $name=explode("_",$request['department']);
+    
+            $leaves->department = $name[0];
+
+            $leaves->department = $request->input('department');
+            $leaves->name = $request->input('name');
             $leaves->select_type = $request['select_type'];
             $leaves->fromdate = $request['fromdate'];
             $leaves->todate = $request['todate'];

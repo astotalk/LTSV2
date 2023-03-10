@@ -73,7 +73,7 @@
                         </tbody>
                      </table>
                   </div>
-                  {{ $leaves->links() }}
+             
                   
             </div>
 </div>
@@ -311,8 +311,8 @@ $('#department').change(function(){
 
              var id = response['data'][i].id;
              var name = response['data'][i].name;
-
-             var option = "<option value='"+id+"'>"+name+"</option>";
+             var idname = id+'_'+name;
+             var option = "<option value='"+name+"'>"+name+"</option>";
              $("#name").append(option); 
              
           }

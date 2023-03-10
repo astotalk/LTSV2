@@ -48,7 +48,7 @@
              <p><strong>Custom Address:</strong> <span id="custom_address"></span></p>
              <p><strong>Pin Code:</strong> <span id="pin_code"></span></p>
              <p><strong>Date:</strong> <span id="date"></span></p>
-             <p><strong>Brand:</strong> <span id="type_brand"></span></p>
+             <p><strong>Brand:</strong> <span id="brand_name"></span></p>
              <p><strong>Warrenty number:</strong> <span id="warrenty_number"></span></p>
              <p><strong>Product:</strong> <span id="product_type"></span></p>
              <p><strong>Visit:</strong> <span id="visit_type"></span></p>
@@ -143,23 +143,16 @@
 
                            <div class="col-12"> 
                               <label for="country" class="form-label">Brand<span style="color: red">*</span></label></br>
-                              <select name="type_brand" class="type_brand  form-control type_brand" id="type_brand1" >
-                                 
-                                 <option value="samsung">samsung</option>
-                                 <option value="Tata Group">Tata Group</option>
-                                 <option value="Colgate">Colgate</option>
-                                 <option value="Lux">Lux</option>
-                                 <option value="Amul">Amul</option>
-                                 <option value="Life Boy">Life Boy</option>
-                                 <option value="Horlics">Horlics</option>
-                                 <option value="Pesodent">Pesodent</option>
-                                 <option value="Britannia">Britannia</option>
-                                 <option value="Close up">Close up</option>
-                              </select>
+                            <select name="brand_name" class="brand_name form-control"  id="brand_name1" data-live-search="true"  data-size="8" tabindex="null">
+                                    <option value='0'>--Brand Name--</option>
+                                     @foreach($addcomplaits  as $brand_name)
+                                     <option value="{{$brand_name->brand_name}}">{{$brand_name->brand_name}}</option>
+                                    @endforeach
+                                 </select>
                            </div>
                            <div class="col-12"> 
                               <label for="country" class="form-label">Modal No.<span style="color: red">*</span></label></br>
-                              <input type="text" class="type_model form-control"  name="type_model" id="type_model1" required>
+                              <input type="text" class="model_no form-control"  name="model_no" id="model_no1" required>
                            </div>
 
                            <div class="col-12"> 
@@ -254,8 +247,8 @@
                         <th>{{$addcomp->district}}</th>
                         <th>{{$addcomp->state}}</th>
                         <th>{{$addcomp->product_type}}</th>
-                        <th>{{$addcomp->type_brand}}</th>
-                        <th>{{$addcomp->type_model}}</th>
+                        <th>{{$addcomp->brand_name}}</th>
+                        <th>{{$addcomp->model_no}}</th>
 
                         <td>
                            
@@ -349,8 +342,8 @@ function Pincode(){
                     $('#state1').val(response.addcomplaits.state);  
                     $('#type_complaint1').val(response.addcomplaits.type_complaint);  
                     $('#date1').val(response.addcomplaits.date);    
-                    $('#type_brand1').val(response.addcomplaits.type_brand);
-                    $('#type_model1').val(response.addcomplaits.type_model);
+                    $('#brand_name1').val(response.addcomplaits.brand_name);
+                    $('#model_no1').val(response.addcomplaits.model_no);
                     $('#warrenty_number1').val(response.addcomplaits.warrenty_number);
                     $('#product_type1').val(response.addcomplaits.product_type);
                     $('#visit_type1').val(response.addcomplaits.visit_type);
@@ -381,8 +374,8 @@ function Pincode(){
                   $('#state').text(data.state);
                   $('#type_complaint').text(data.type_complaint);
                   $('#date').text(data.date);
-                  $('#type_brand').text(data.type_brand);
-                  $('#type_model').text(data.type_model);
+                  $('#brand_name').text(data.brand_name);
+                  $('#model_no').text(data.model_no);
                   $('#warrenty_number').text(data.warrenty_number);
                   $('#product_type').text(data.product_type);
                   $('#visit_type').text(data.visit_type);

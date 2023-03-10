@@ -106,7 +106,7 @@ legend.scheduler-border {
           </table>
          </div>
 
-         {{ $employee->links() }}
+       
       </div>
     
                    
@@ -123,17 +123,15 @@ legend.scheduler-border {
             <div class="modal-body">
                 <div class="form-group">
                     <div class="col ms-1 me-2 mt-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="emp_id" class="form-label">Employee Id <span style="color: red">*</span></label>
-                                <input type="text" class="emp_code form-control"  name="emp_code" required>
-                            </div>
-
-                            <div class="col-6">
-                                <label for="emp_name" class="form-label">Employee Name <span style="color: red">*</span></label>
-                                <input type="text" class="name form-control" name="name"   required>
-                            </div>
+                      
+                      <div class="row">
+                        <div class="col">
+                          <label for="emp_name" class="form-label">Employee Name <span style="color: red">*</span></label>
+                          <input type="text" class="name form-control" name="name"   required>
                         </div>
+                    </div> 
+                           
+           
                                                         <br>
                         <div class="row g-3">
                             <div class="col-4">

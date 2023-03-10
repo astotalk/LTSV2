@@ -16,7 +16,6 @@ class CreateEmpolyeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('emp_code')->unique();
             $table->string('email');
             $table->string('phone');
             $table->string('alernate_number');
@@ -39,8 +38,7 @@ class CreateEmpolyeesTable extends Migration
             $table->string('account_number');
             $table->string('branch_name');
             $table->string('ifsc_code');
-
-          
+            $table->text('emp_code');
             $table->timestamps();
         });
     }

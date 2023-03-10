@@ -148,7 +148,7 @@ Route::get('/', function () {
 ///////////////////////////////Designation///////////////////////////////
 
     Route::get('/company/designation', [DesigantionController::class,'designation'])->name('designation');
-    Route::POST('/designation/addstore', [DesigantionController::class,'addstore'])->name('addstore');
+    Route::POST('/designation/addstoress', [DesigantionController::class,'addstoress'])->name('addstoress');
     Route::get('/designation/edit/{id}', [DesigantionController::class,'edit']);
     Route::put('/designation/update/', [DesigantionController::class,'update'])->name('update');
     Route::POST('/designation/destroy/', [DesigantionController::class,'destroy'])->name('destroy');

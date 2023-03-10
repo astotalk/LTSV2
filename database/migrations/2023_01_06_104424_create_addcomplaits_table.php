@@ -28,7 +28,7 @@ class CreateAddcomplaitsTable extends Migration
             $table->string('state');
             $table->string('type_complaint');
             $table->string('date');
-            $table->string('type_brand');
+            $table->string('brand_name');
             $table->string('type_model');
             $table->string('warrenty_number');
             $table->string('product_type');

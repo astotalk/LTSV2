@@ -1,6 +1,6 @@
 @extends('LTS.layouts.main')
 @section('content-header')
-        
+     <br><br>   
         <!-- Start dashboard inner -->
     <div class="midde_cont">
       <div class="container-fluid">
@@ -87,13 +87,14 @@
                         <th>{{$addcomp->state}}</th>
                         <th>{{$addcomp->pin_code}}</th>
                         <th>{{$addcomp->product_type}}</th>
-                        <th>{{$addcomp->type_brand}}</th>
-                        <th>{{$addcomp->type_model}}</th>
-                        <th></th>  
+                        <th>{{$addcomp->brand_name}}</th>
+                        <th>{{$addcomp->model_no}}</th>
                         <th></th>
-                        <th></th>  
-                        <th></th>
-                        <th></th>
+                        <th>{{$addcomp->EngineerName}}</th>  
+                        <th>{{$addcomp->custom_mobile}}</th>  
+                        
+                        <th>{{ $addcomp->date}}</th>
+                        <th>{{ $addcomp->dates}}</th>
                         <th>{{$addcomp->remark}}</th>
                             <th></th>
                         <th></th>  

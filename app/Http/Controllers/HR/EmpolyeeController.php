@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Empolyee;
 use App\Models\Department;
 use App\Models\Designation;
+use App\Helpers\Helpers;
 
 
 class EmpolyeeController extends Controller
@@ -27,7 +28,7 @@ class EmpolyeeController extends Controller
         }else{
            
       
-           $employee = Empolyee::paginate(3);
+           $employee = Empolyee::all();
         }
             
         $data =compact('employee','search','DeparmenttmList','DesignationList');
@@ -70,9 +71,12 @@ class EmpolyeeController extends Controller
             //  echo "<pre>"; print_r($request->all()); 
             // die('');
       
-            $empolyees  = new AddComplaint;
+
+            $emp_code =  Helpers::IDGenerators(new Empolyee, 'emp_code', 5, 'LTS-EMP');
+          
+            $empolyees  = new Empolyee;
+            $empolyees->emp_code = $emp_code;
             $empolyees->name = $request->input('name');
-            $empolyees->emp_code = $request->input('emp_code');
             $empolyees->email = $request->input('email');
             $empolyees->phone = $request->input('phone');
             $empolyees->alernate_number = $request->input('alernate_number');

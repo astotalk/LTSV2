@@ -8,6 +8,7 @@ use App\Models\AddComplaint;
 use App\Models\Company;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+
 class PendingcallsController extends Controller
 {
     /**
@@ -133,8 +134,8 @@ class PendingcallsController extends Controller
         $addcomplaits->state = $request->input('state');
         $addcomplaits->type_complaint = $request->input('type_complaint');
         $addcomplaits->date = $request->input('date');
-        $addcomplaits->type_brand = $request->input('type_brand');
-        $addcomplaits->type_model = $request->input('type_model');
+        $addcomplaits->brand_name = $request->input('brand_name');
+        $addcomplaits->model_no = $request->input('model_no');
         $addcomplaits->warrenty_number = $request->input('warrenty_number');
         $addcomplaits->product_type = $request->input('product_type');
         $addcomplaits->visit_type = $request->input('visit_type');
