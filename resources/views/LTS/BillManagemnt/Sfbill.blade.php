@@ -7,9 +7,9 @@
     <div class="invoice-box">
         <center>
            <strong>
-               Bill Period : February / 2022<p>
-                   Date : 2023-02-07<br>
-                   Bill ID :RAPSF/2023-02-07/238<br>
+               Bill Period : March / 2023<p>
+                   Date : 2023-03-07<br>
+                   Bill ID :RAPSF/2023-03-07/238<br>
                </p>
            </strong>
         </center>
@@ -19,15 +19,19 @@
                 
                 <tr>
                 <td>
-                    To
-                    <p>Rapid Assured Pvt. Ltd</p>
-                    <p>273, Rajdhani Enclave, Pitampura<br>
-                        New Delhi - 110034<br>
-                        +91- 8448344155<br>
-                        Info@rapidassured.com
-                    </p>
-                </td>
-                <td align="right">
+                    @foreach($company as $master_com)
+                    <tr>
+                       To
+                       <p>{{$master_com->company_name}}</p>
+                       <p>{{$master_com->register_address}} , {{$master_com->region}} , 
+                        {{$master_com->city}} - {{$master_com->pin_code}}<br>
+                        {{$master_com->phone}} , {{$master_com->email}}</p>
+                       
+                       </tr>
+               </td>
+               @endforeach
+                    
+                <td align="right" style="margin-top: -96px;">
 
                     From
                     <p> ARIF SHAIKH<br>
@@ -63,32 +67,34 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Total Payable Amount:
-                </td><td>Rs </td>
+                <td>Total Payable Amount:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Rs </td>
             </tr>
         </tbody></table>
         <hr>
 
         <table width="100%">
 
-            <tbody><tr>
+            <tbody>
+                @foreach($expense as $expensed)
+                <tr>
                 <td>Paid Date:</td>
-                <td>.........................</td>
-                <td>Paid Mode</td>
-                <td>.........................</td>
-            </tr>
-            <tr>
+                <td>{{ $expensed->expesce_date }}</td>
+                 <td>Paid Mode</td>
+                <td>{{$expensed->paid_through}}</td>
                 <td>Transaction ID:</td>
-                <td>.........................</td>
-                <td>Balance Amount If Any</td>
-                <td>.........................</td>
-            </tr>
-            <tr>
+                <td>{{$expensed->transaction}}</td>
                 <td>Check By:</td>
-                <td>.........................</td>
+                <td>{{$expensed->paid_by}}</td>
                 <td>Remark </td>
-                <td>.........................</td>
+                <td>{{$expensed->remark}}</td>
+                <td>Amount </td>
+                <td>{{$expensed->amount}}</td>
             </tr>
+            @endforeach
         </tbody></table>
     </div>
 </div>

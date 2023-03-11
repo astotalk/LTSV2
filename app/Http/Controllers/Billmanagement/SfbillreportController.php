@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\AddComplaint;
 use App\Models\Addservicenter;
+use App\Models\Company;
+use App\Models\Expense;
+
 class SfbillreportController extends Controller
 {
     /**
@@ -17,10 +20,11 @@ class SfbillreportController extends Controller
     public function Sfbill()
     {
 
-        // $addcomplaits = AddComplaint::where('id',$id)->count();
-        // return view('LTS.BillManagemnt.Sfbill',['addcomplaits'=>$addcomplaits,'id'=>$id]);
+       
+        $expense = Expense::select('*')->take(1)->get();
+        $company  = Company::all();
         $addcomplaits  = AddComplaint::all();   
-        return view('LTS.BillManagemnt.Sfbill',compact('addcomplaits'));
+        return view('LTS.BillManagemnt.Sfbill',compact('addcomplaits','company','expense'));
     }
 
     /**
