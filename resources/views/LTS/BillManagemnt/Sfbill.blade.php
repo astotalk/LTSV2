@@ -109,7 +109,7 @@
         var originalContents = document.body.innerHTML;
         document.body.innerHTML = printContents;
         window.print();
-        window.location.href = 'crm?pageName=SfBillInvoice';
+        window.location.href = 'http://127.0.0.1:8000/BillManagemnt/Sfbill';
 
     }
 </script></div>

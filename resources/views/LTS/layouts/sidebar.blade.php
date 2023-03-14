@@ -24,6 +24,7 @@
                        
                </div>
                      <div class="sidebar_blog_2" style="margin-left: -35px;">
+                        
                     
                           
                <h4>General</h4>
@@ -284,10 +285,10 @@
                         <a href="#RTO" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class='fa fa-drivers-license' style='font-size:20px'></i><span>RTO</span></a>
                         <ul class="collapse list-unstyled" id="RTO">
                            <li>
-                              <a href="Addrto.php"><i class="fa fa-circle-o"></i> <span>Add RTO</span></a>
+                              <a href="{{ route('addrto') }}"><i class="fa fa-circle-o"></i> <span>Add RTO</span></a>
                            </li>
                            <li>
-                              <a href="Rtoreport.php"><i class="fa fa-circle-o"></i> <span>RTO Report</span></a>
+                              <a href="{{ route('rtoreport') }}"><i class="fa fa-circle-o"></i> <span>RTO Report</span></a>
                            </li>
                           
                          </ul>

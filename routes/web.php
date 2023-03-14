@@ -14,6 +14,8 @@ use App\Http\Controllers\Billmanagement;
 use  App\Http\Controllers\Expense;
 use  App\Http\Controllers\DeliveryCallan;
 use  App\Http\Controllers\Registration;
+use  App\Http\Controllers\RTO;
+
 
 
 
@@ -111,6 +113,11 @@ use App\Http\Controllers\Login\{
 
     use  App\Http\Controllers\Registration\{
         RegistrationController,
+    };
+
+    use    App\Http\Controllers\RTO\{
+        RTOController,
+        RtoreportController
     };
     
 
@@ -331,11 +338,14 @@ Route::get('/', function () {
     Route::get('/DeliveryCallan/Challanreport/', [ChallanreportListController::class,'Challanreport'])->name('Challanreport');
     Route::post('/Challanreport/getdatasearch/', [ChallanreportListController::class,'getdatasearch'])->name('getdatasearch');
     Route::get('/Challanreport/view/{id}', [ChallanreportListController::class,'view'])->name('view');
-
-
     Route::get('/DeliveryCallan/deliverychallan/', [deliverychallanController::class,'deliverychallan'])->name('deliverychallan');
     
-    
+        //////////////////////////////RTO Callan ///////////////////////////////////////
+        Route::get('/RTO/addrto/', [RTOController::class,'addrto'])->name('addrto');   
+        Route::get('/RTO/rtoreport/', [RtoreportController::class,'rtoreport'])->name('rtoreport');   
+        Route::post('/RTO/GetRtoDetail/', [RTOController::class,'GetRtoDetail'])->name('rtoGetRtoDetailreport');   
+
+        
     
     
 });
