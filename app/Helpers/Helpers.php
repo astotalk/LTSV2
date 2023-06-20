@@ -13,7 +13,7 @@ class  Helpers
         }else{
 
             $code = substr($data->$trow, strlen($prefiex)+1);
-            $actial_last_number = ($code/1)*1;
+            $actial_last_number = ($code['1'])*1;
             $increment_last_number = $actial_last_number+1;
             $last_number_length = strlen($increment_last_number);
             $og_length = $length - $last_number_length;

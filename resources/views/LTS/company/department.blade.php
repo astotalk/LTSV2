@@ -87,7 +87,7 @@
 <Form    action="{{url('/department/update/')}}" method="POST"  id="editForm"  enctype="multipart/form-data"/>
  @method('PUT')  
            @csrf  
-           <input type="hidden" id="dpt_id" name="dpt_id"/>
+           <input type="text" id="dpt_id" name="dpt_id"/>
   <div class="modal-header">						
         <h4 class="modal-title"  id="EditModalLabel">Edit Department</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -127,7 +127,7 @@
                   <form  action="{{ url('/department/destroy/')}}"  method="POST">
                        @csrf
                         <div class="modal-header">						
-                           <h4 class="modal-title"  id="deleteModalLabel">Delete Designation</h4>
+                           <h4 class="modal-title"  id="deleteModalLabel">Delete Department</h4>
                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                             <div class="modal-body">
@@ -194,11 +194,7 @@
 
   $(document).ready(function (){
 
-    $.ajaxSetup({
-   headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
-});
+
     $('.deletedepartmentBtn').click(function (e) {
                 e.preventDefault();
                var department = $(this).val();
@@ -231,7 +227,7 @@
                       $('#dpt_id').val(response.department.id);
                       $('#department1').val(response.department.department)          
 
-}
+          }
 
        });
       });

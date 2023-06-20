@@ -11,10 +11,10 @@ use App\Http\Controllers\ClientMangament;
 use App\Http\Controllers\ServiceManagement;
 use App\Http\Controllers\InventoryManagament;
 use App\Http\Controllers\Billmanagement;
-use  App\Http\Controllers\Expense;
-use  App\Http\Controllers\DeliveryCallan;
-use  App\Http\Controllers\Registration;
-use  App\Http\Controllers\RTO;
+use App\Http\Controllers\Expense;
+use App\Http\Controllers\DeliveryCallan;
+use App\Http\Controllers\Registration;
+use App\Http\Controllers\RTO;
 
 
 
@@ -85,30 +85,30 @@ use App\Http\Controllers\Login\{
         ServicenterlinkcityController
     };
     use App\Http\Controllers\InventoryManagament\{
-        AddpartController,
-        StorkListController,
-        PartlistController,
-        StockentrylistController,
-        PartsMappingListController,
-        PartsMappingController,
-        StorEntryController
+            AddpartController,
+            StorkListController,
+            PartlistController,
+            StockentrylistController,
+            PartsMappingListController,
+            PartsMappingController,
+            StorEntryController
         
     };
   use  App\Http\Controllers\Billmanagement\{
-    SFBillController,
-    InvoiceController,
-    SfbillreportController,
+            SFBillController,
+            InvoiceController,
+            SfbillreportController,
     };
 
     use App\Http\Controllers\Expense\{
-        ExpenseController,
-        ExpenseHistoryController,
+                ExpenseController,
+                ExpenseHistoryController,
     };
     use  App\Http\Controllers\DeliveryCallan\{
-        DeliveryCallanController,
-        DeliveryCallanListController,
-        ChallanreportListController,
-        deliverychallanController
+                DeliveryCallanController,
+                DeliveryCallanListController,
+                ChallanreportListController,
+                deliverychallanController
     };
 
     use  App\Http\Controllers\Registration\{
@@ -134,8 +134,7 @@ Route::get('/', function () {
     Route::post('/LTS/login', [LoginController::class,'postlogin'])->name('postlogin');
     Route::get('/LTS/dashboard', [ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/LTS/logout', [ProfileController::class,'logout'])->name('logout');
-    Route::get('/LTS/Registration', [RegistrationController::class,'registration'])->name('registration');
-    Route::post('/Registration/registrationstore', [RegistrationController::class,'registrationstore'])->name('registrationstore');
+
 ///////////////////////////////Company///////////////////////////////
 
     Route::get ('/company/company', [CompanyController::class,'company'])->name('company');
@@ -340,10 +339,11 @@ Route::get('/', function () {
     Route::get('/Challanreport/view/{id}', [ChallanreportListController::class,'view'])->name('view');
     Route::get('/DeliveryCallan/deliverychallan/', [deliverychallanController::class,'deliverychallan'])->name('deliverychallan');
     
-        //////////////////////////////RTO Callan ///////////////////////////////////////
-        Route::get('/RTO/addrto/', [RTOController::class,'addrto'])->name('addrto');   
-        Route::get('/RTO/rtoreport/', [RtoreportController::class,'rtoreport'])->name('rtoreport');   
-        Route::post('/RTO/GetRtoDetail/', [RTOController::class,'GetRtoDetail'])->name('rtoGetRtoDetailreport');   
+    //////////////////////////////RTO Callan ///////////////////////////////////////
+
+   Route::get('/RTO/addrto/', [RTOController::class,'addrto'])->name('addrto');   
+   Route::get('/RTO/rtoreport/', [RtoreportController::class,'rtoreport'])->name('rtoreport');   
+   Route::post('/RTO/GetRtoDetail/', [RTOController::class,'GetRtoDetail'])->name('rtoGetRtoDetailreport');   
 
         
     

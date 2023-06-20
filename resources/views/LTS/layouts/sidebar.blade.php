@@ -333,7 +333,7 @@
                                        <a class="dropdown-item" href="profile.php">My Profile</a>
                                        <a class="dropdown-item" href="settings.php">Settings</a>
                                        <a class="dropdown-item" href="help.php">Help</a>
-                                       <a class="dropdown-item" href="{{ route('registration') }}">Register</a>
+                                       <a class="dropdown-item" href="#">Register</a>
                                        <a class="dropdown-item" href="{{route('logout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>

@@ -80,7 +80,7 @@
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
                               <button type="submit" class="main_bt">Sing In</button>
-                              <button  type="submit" class="main_bt"><a href="{{ route('registration') }}">Sing Up</a> </button>
+                              <button  type="submit" class="main_bt"><a href="#">Sing Up</a> </button>
                            </div>
                         </fieldset>
                      </form>
@@ -88,6 +88,8 @@
                </div>
             </div>
          </div>
+
+         
       </div>
       <!-- jQuery -->
       <script src="{{url('lts_assets/js/jquery.min.js')}}"></script>

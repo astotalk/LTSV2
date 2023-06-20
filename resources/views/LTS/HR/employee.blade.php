@@ -130,9 +130,7 @@ legend.scheduler-border {
                           <input type="text" class="name form-control" name="name"   required>
                         </div>
                     </div> 
-                           
-           
-                                                        <br>
+                   <br>
                         <div class="row g-3">
                             <div class="col-4">
                                 <label for="email" class="form-label">Email <span style="color: red">*</span></label>
@@ -573,16 +571,10 @@ $(document).ready(function(){
                var id = $(this).val();
                 $('#id').val(id);
                 $('#deleteModal').modal('show');
-
               });
-
-
               $(document).on('click', '.editbtn', function(){
-              
               var cmp_id = $(this).val();
-           
                $('#EditModal').modal('show');
-           
                         var id = $(this).val();
           
                         $('#EditModal').modal('show');
@@ -592,7 +584,6 @@ $(document).ready(function(){
                                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                   }
                               });
-
             $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
