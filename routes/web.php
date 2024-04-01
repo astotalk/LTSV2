@@ -15,6 +15,8 @@ use App\Http\Controllers\Expense;
 use App\Http\Controllers\DeliveryCallan;
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RTO;
+use App\Http\Controllers\Register;
+
 
 
 
@@ -120,7 +122,9 @@ use App\Http\Controllers\Login\{
         RtoreportController
     };
     
-
+   use  App\Http\Controllers\Register\{
+        RegisterController
+    };
 
     
 Route::get('/', function () {
@@ -345,8 +349,10 @@ Route::get('/', function () {
    Route::get('/RTO/rtoreport/', [RtoreportController::class,'rtoreport'])->name('rtoreport');   
    Route::post('/RTO/GetRtoDetail/', [RTOController::class,'GetRtoDetail'])->name('rtoGetRtoDetailreport');   
 
-        
-    
+//    Route::get('./RegisterUser/register', 'Api\RegisterController@register');    
+   Route::get('/RegisterUser/register', [RegisterController::class,'register'])->name('register');
+   Route::POST('/register/registerstore', [RegisterController::class,'registerstore'])->name('registerstore');
+
     
 });
 

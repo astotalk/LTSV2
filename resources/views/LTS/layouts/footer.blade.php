@@ -40,7 +40,7 @@
 
 <div class="container-fluid1">
    <div class="footer">
-         <p style="margin-right: 509px;color:white;margin-left: 13px;">Copyright © 2023 Designed by html.design. All rights reserved.<br>
+         <p style="margin-right: 509px;color:white;margin-left: -107px;">Copyright © 2023 Designed by html.design. All rights reserved.<br>
             Distributed By: </p>
        
    </div>
