@@ -324,7 +324,7 @@
                      $('#firstnameuser').val(response.registerssusers.firstname);
                      $('#lastnameuser').val(response.registerssusers.lastname);
                      $('#emailuser').val(response.registerssusers.email);
-                     $('#original_passworduser').val(response.registerssusers.password);
+                     $('#original_passworduser').val(response.registerssusers.original_password);
                      $('#phoneuser').val(response.registerssusers.phone);
                      $('#addressuser').val(response.registerssusers.address);
               }
