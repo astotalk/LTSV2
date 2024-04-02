@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Register;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Registeruser;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -16,17 +17,15 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
-        $search = $request['search'] ?? "";
-        if($search != ""){
+        // $search = $request['search'] ?? "";
+        // if($search != ""){
 
-            $registerssusers = Registeruser::where('firstname', 'LIKE', "%$search%")->get();
-        }else{
+        //     $registerssusers = Registeruser::where('firstname', 'LIKE', "%$search%")->get();
+        // }else{
 
             $registerssusers = Registeruser::all();
-        }
-            
-        $data =compact('registerssusers','search');
-       return view('LTS.RegisterUser.register')->with($data);
+             $data =compact('registerssusers');
+           return view('LTS.RegisterUser.register')->with($data);
       
     }
 
@@ -46,6 +45,20 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function up()
+    {
+        Schema::table('registerssusers', function (Blueprint $table) {
+            $table->string('original_password')->nullable();
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('registerssusers', function (Blueprint $table) {
+            $table->dropColumn('original_password');
+        });
+    }
+
     public function registerstore(Request $request)
     {
         $request  ->validate([
@@ -64,12 +77,17 @@ class RegisterController extends Controller
         $registerssusers->firstname = $request['firstname'];
         $registerssusers->lastname = $request['lastname'];
         $registerssusers->email = $request['email'];
-        $registerssusers->password = $request['password'];
+        $registerssusers->password = Hash::make($request->password);
+        $registerssusers->original_password = $request['password'];
         $registerssusers->phone = $request['phone'];
         $registerssusers->address = $request['address'];
         $registerssusers->save();
         // dd($registerssusers);
         return redirect()->back()->with('status','Register Has Been Added successfully');
+
+        // return redirect('LTS/login')->with('success', 'Registration successful! Please log in.');
+        
+        
 
        
     }
@@ -91,9 +109,14 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $registers = Registeruser::find($id);
+        return response()->json([
+            'status'=>200,
+            'registerssusers' => $registers,
+        ]);
+        return view('LTS.register.edit',compact('registerssusers'));
     }
 
     /**
@@ -103,9 +126,23 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+       
+        $id = $request->input('id');
+        $registerssusers = Registeruser::find($id); 
+        $registerssusers->firstname = $request->input('firstname');
+        $registerssusers->lastname = $request->input('lastname');
+        $registerssusers->email = $request->input('email');
+        $registerssusers->password = Hash::make($request->password);
+        $registerssusers->original_password = $request['password'];
+        $registerssusers->phone = $request['phone'];
+        $registerssusers->address = $request['address'];
+        $registerssusers->update();
+         //dd($registerssusers);
+        
+        return redirect()->back()->with('status','Register Has Been Update successfully');
     }
 
     /**
@@ -114,8 +151,11 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        // echo "<pre>"; print_r($request->all()); 
+        //        die('Hello');
+      $registerssusers = Registeruser::find($request->id)->delete();
+       return redirect()->back()->with('status','Register Has Been Delete successfully');
     }
 }

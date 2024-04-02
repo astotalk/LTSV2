@@ -352,8 +352,10 @@ Route::get('/', function () {
 //    Route::get('./RegisterUser/register', 'Api\RegisterController@register');    
    Route::get('/RegisterUser/register', [RegisterController::class,'register'])->name('register');
    Route::POST('/register/registerstore', [RegisterController::class,'registerstore'])->name('registerstore');
-
-    
+   Route::get('/register/edit/{id}', [RegisterController::class,'edit'])->name('edit');
+   Route::put('/register/update/', [RegisterController::class,'update'])->name('update');
+   Route::POST('/register/destroy/', [RegisterController::class,'destroy'])->name('destroy');
+ 
 });
 
 

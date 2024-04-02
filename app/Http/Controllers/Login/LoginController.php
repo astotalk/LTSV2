@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Registration;
+use App\Models\Registeruser;
 class LoginController extends Controller
 { 
     
