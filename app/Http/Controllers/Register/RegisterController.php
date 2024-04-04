@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Register;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Registeruser;
+use App\Models\User;
+use App\Models\Empolyee;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -23,9 +26,13 @@ class RegisterController extends Controller
         //     $registerssusers = Registeruser::where('firstname', 'LIKE', "%$search%")->get();
         // }else{
 
-            $registerssusers = Registeruser::all();
-             $data =compact('registerssusers');
-           return view('LTS.RegisterUser.register')->with($data);
+            $data = DB::table('registerssusers')
+            ->leftJoin('department', 'registerssusers.id', '=', 'department.id')
+            ->select('registerssusers.*', 'department.department')
+            ->get();
+            //   dd($leftJoinResult);
+             
+              return view('LTS.RegisterUser.register', compact('data'));
       
     }
 
@@ -34,9 +41,14 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function registerjoinemp()
     {
-        //
+        //    $data = DB::table('registerssusers')
+        // ->join('employees', 'registerssusers.id', '=', 'employees.id')
+        // ->select('registerssusers.*', 'employees.name')
+        // ->get();
+        //         // Pass data to the view as an associative array
+        //         return view('LTS.RegisterUser.register', compact('data'));
     }
 
     /**

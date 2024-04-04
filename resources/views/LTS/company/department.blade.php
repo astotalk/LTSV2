@@ -21,14 +21,14 @@
                  </div>
               </div>
 
-<div class="container py-5">
-<div class="row">
-<div class="col-md-12">
-@if(session('status'))
-                <div class="alert alert-success">{{session('status')}}</div>
-                @endif
-<div id="success_message"></div>
-<div class="card mt-3">
+            <div class="container py-5">
+         <div class="row">
+         <div class="col-md-12">
+          @if(session('status'))
+      <div  style="margin-top: 17px;" class="alert alert-success">{{session('status')}}</div>
+      @endif
+      <div id="success_message"></div>
+  <div class="card mt-3">
 <div class="card-header">
   <!-- SEARCH BY TASK START -->
   <nav class="navbar navbar-light bg-light">
@@ -58,8 +58,8 @@
             
               <td>
                
-              <button type="button"  value="{{$department->id}}" class="btn btn-primary editbtn btn-sm">Edit</button>
-              <button type="button"  value="{{$department->id}}" class="btn btn-danger deletedepartmentBtn">Delete</button>
+              <button type="button"  value="{{$department->id}}" style="margin-top:8px;margin-left:5px;width:52px;height:37px;" class="btn btn-primary editbtn btn-sm">Edit</button>
+              <button type="button"  value="{{$department->id}}" style="margin-top:-61px;margin-left:69px;" class="btn btn-danger deletedepartmentBtn">Delete</button>
                  
               </td>
               </tr>
@@ -87,7 +87,7 @@
 <Form    action="{{url('/department/update/')}}" method="POST"  id="editForm"  enctype="multipart/form-data"/>
  @method('PUT')  
            @csrf  
-           <input type="text" id="dpt_id" name="dpt_id"/>
+           <input type="hidden" id="dpt_id" name="dpt_id"/>
   <div class="modal-header">						
         <h4 class="modal-title"  id="EditModalLabel">Edit Department</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

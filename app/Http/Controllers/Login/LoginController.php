@@ -10,7 +10,6 @@ use App\Models\Registeruser;
 class LoginController extends Controller
 { 
     
-
     public function getlogin(){
    
        return view('LTS.auth.login');
@@ -18,12 +17,13 @@ class LoginController extends Controller
     }
     public function postlogin(Request $request){
    
-   $request->validate([
+     $request->validate([
    
        'email' => 'required|email',
        'password' => 'required'
    
    ]);
+   
      $validated=auth ()->attempt([
    
        'email' =>$request->email,

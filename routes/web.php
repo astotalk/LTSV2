@@ -16,6 +16,8 @@ use App\Http\Controllers\DeliveryCallan;
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RTO;
 use App\Http\Controllers\Register;
+use App\Http\Controllers\Profile;
+
 
 
 
@@ -125,6 +127,9 @@ use App\Http\Controllers\Login\{
    use  App\Http\Controllers\Register\{
         RegisterController
     };
+    use  App\Http\Controllers\Profile\{
+        ProfileEmpController
+    };
 
     
 Route::get('/', function () {
@@ -188,7 +193,7 @@ Route::get('/', function () {
     Route::get('/leave/edit/{id}', [LeaveController::class,'edit']);
     Route::POST('/leave/destroy/', [LeaveController::class,'destroy'])->name('destroy');
 
-///////////////////////////////Call Center Management///////////////////////////////
+///////////////////////////////Call Center Management/////////////////////////////// 
 
     Route::get('/CallCenterManagement/complaintsearch', [ComplaintController::class,'complaintsearch'])->name('complaintsearch');
     Route::post('/complaintsearch/compstore', [ComplaintController::class, 'compstore'])->name('compstore'); 
@@ -355,8 +360,15 @@ Route::get('/', function () {
    Route::get('/register/edit/{id}', [RegisterController::class,'edit'])->name('edit');
    Route::put('/register/update/', [RegisterController::class,'update'])->name('update');
    Route::POST('/register/destroy/', [RegisterController::class,'destroy'])->name('destroy');
+
+  Route::get('/RegisterUser/registerjoinemp/', [RegisterController::class,'registerjoinemp'])->name('registerjoinemp');
+
+  Route::get('/Profile/profile_crm', [ProfileEmpController::class,'profile_crm'])->name('profile_crm');
+
  
 });
+
+
 
 
 

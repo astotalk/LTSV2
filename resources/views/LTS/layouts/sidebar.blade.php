@@ -330,7 +330,7 @@
                                  <li>
                                     <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{url('lts_assets/images/layout_img/latech.jfif')}}" alt="#" /><span class="name_user">Latech</span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.php">My Profile</a>
+                                       <a class="dropdown-item" href="{{ url('/Profile/profile_crm') }}">My Profile</a>
                                        <a class="dropdown-item" href="settings.php">Settings</a>
                                        <a class="dropdown-item" href="help.php">Help</a>
                                        <a class="dropdown-item" href="{{ url('/RegisterUser/register') }}">Register</a>

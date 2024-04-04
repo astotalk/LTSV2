@@ -25,22 +25,22 @@
    <div class="row">
    <div class="col-md-12">
    @if(session('status'))
-                <div class="alert alert-success">{{session('status')}}</div>
-                @endif
-      <div id="success_message"></div>
-         <div class="card mt-3">
+      <div style="margin-top: 17px;" class="alert alert-success">{{session('status')}}</div>
+      @endif
+        <div id="success_message"></div>
+          <div class="card mt-3">
                <div class="card-header">
                   <!-- SEARCH BY TASK START -->
                   <nav class="navbar navbar-light bg-light">
                      <form method="get"  class="form-inline">
-                     <a class="btn btn-danger text-white" href="{{route('dashboard')}}" role="button">Back</a> &nbsp;&nbsp;
-                     <input  type="search"  name="search" id="" class="form-control" placeholder="Search Designation"  value= "{{$search}}">
-                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                       <a class="btn btn-danger text-white" href="{{route('dashboard')}}" role="button">Back</a> &nbsp;&nbsp;
+                         <input  type="search"  name="search" id="" class="form-control" placeholder="Search Designation"  value= "{{$search}}">
+                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                      </form>
-                           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                              + Add Designation
-                           </button>
-               </div>
+                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                        + Add Designation
+                     </button>
+                 </div>
          <!--table start-->
                <div class="card-body">
                   <table class="table table-bordered">
@@ -59,8 +59,8 @@
                            <th>{{$designation->id}}</th>
                           <th>{{ucfirst($designation->desigantion)}}</th>
                  <td>
-                  <button type="button"  value="{{$designation->id}}" class="btn btn-primary editbtn btn-sm"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>&nbsp; 
-                  <button type="button"  value="{{$designation->id}}" class="btn btn-danger deletedesignationBtn">Delete</button>
+                  <button type="button"  value="{{$designation->id}}" style="margin-top:17px;margin-left:5px;" class="btn btn-primary editbtn btn-sm"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>&nbsp; 
+                  <button type="button"  value="{{$designation->id}}" style="margin-top:-60px;margin-left:69px;" class="btn btn-danger deletedesignationBtn">Delete</button>
                 
                 </tr>
                 

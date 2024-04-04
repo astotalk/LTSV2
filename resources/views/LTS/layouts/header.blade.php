@@ -50,6 +50,7 @@
       <!-- select bootstrap -->
       	   <link rel="stylesheet" href="{{url('lts_assets/css/bootstrap-select.css')}}"/>
       <!-- scrollbar css -->
+	      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
       	   <link rel="stylesheet" href="{{url('lts_assets/css/perfect-scrollbar.css')}}"/>
 		   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
 		   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">

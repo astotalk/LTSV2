@@ -4,28 +4,21 @@ namespace App\Helpers;
 class  Helpers
 
 {
-    public static function IDGenerators($model,$trow ,$length = 5, $prefiex){
-
-        $data = $model::orderBy('id','desc')->first();
-        if(!$data){
-           $og_length = $length;
-           $last_number = '';
-        }else{
-
-            $code = substr($data->$trow, strlen($prefiex)+1);
-            $actial_last_number = ($code['1'])*1;
-            $increment_last_number = $actial_last_number+1;
-            $last_number_length = strlen($increment_last_number);
-            $og_length = $length - $last_number_length;
-            $last_number = $increment_last_number;
+    public static function IDGenerators($model, $trow, $length = 5, $prefix)
+    {
+        $data = $model::orderBy('id', 'desc')->first();
+    
+        if (!$data) {
+            $last_number = '';
+        } else {
+            $last_number = intval(substr($data->$trow, strlen($prefix) + 1)) + 1;
         }
-
-        $zeros = "";
-        for($i=0;$i<$og_length;$i++){
-            $zeros.="0";
-            
-        }
-        return $prefiex.'-' .$zeros.$last_number;
+    
+        $last_number_length = strlen($last_number);
+        $zeroes_length = max(0, $length - $last_number_length);
+        $zeros = str_repeat('0', $zeroes_length);
+    
+        return $prefix . '-' . $zeros . $last_number;
     }
 }
 

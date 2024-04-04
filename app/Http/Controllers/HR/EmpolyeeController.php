@@ -103,8 +103,8 @@ class EmpolyeeController extends Controller
             $empolyees->branch_name = $request->input('branch_name');
             $empolyees->ifsc_code = $request->input('ifsc_code');
             $empolyees->save();
-
-
+            dd($empolyees);
+           
             return redirect()->back()->with('status','Employee Has Been Create successfully');
 
         }

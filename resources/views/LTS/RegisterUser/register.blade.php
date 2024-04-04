@@ -49,6 +49,7 @@
                <th><b>Email</b></th> 
                <th><b>Phone</b></th> 
                <th><b>Address</b></th> 
+               <th><b>Employee Name</b></th>
                
                <th style="text-align: center;"> <b>Action</b></th>
             </tr>
@@ -57,8 +58,8 @@
             @php
             $cnt = 1;
             @endphp
-            @if(!empty($registerssusers))
-             @foreach($registerssusers as $registerssusers)
+            @if(!empty($data))
+             @foreach($data  as $registerssusers)
              <tr> 
              {{-- <th>{{$registerssusers->id}}</th> --}}
                <td>{{ $cnt++ }}</td>
@@ -67,22 +68,24 @@
                <th>{{($registerssusers->email)}}</th>
                <th>{{($registerssusers->phone)}}</th>
                <th>{{($registerssusers->address)}}</th>
+               <th>{{ $registerssusers->department }}</th>
                <th>
-                  <button type="button"  value="{{$registerssusers->id}}" style="margin-top: 8px;margin-left: 5px;" class="btn btn-primary editbtn btn-sm">Edit</button>
-                  <button type="button"  value="{{$registerssusers->id}}" style="margin-top: -49px;margin-left: 69px;" class="btn btn-danger deletedepartmentBtn">Delete</button> 
+                  <button type="button"  value="{{$registerssusers->id}}" style="margin-top:8px;margin-left:5px;width:52px;height:37px;" class="btn btn-primary editbtn btn-sm">Edit</button>
+                  <button type="button"  value="{{$registerssusers->id}}" style="margin-top: -61px;margin-left: 69px;" class="btn btn-danger deletedepartmentBtn">Delete</button> 
                </th>
                </tr>
                  @endforeach
                  @endif
          </tbody>
       </table>
+     </div>
    </div>
-   </div></div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-    <Form  action="{{route('registerstore')}}" method="POST" >
+    <Form id="myForm"  action="{{route('registerstore')}}" method="POST">
      @csrf
     <ul id="savefrom_errList"></ul>
       <div class="modal-header">Register User Management</h5>
@@ -115,7 +118,7 @@
 
                 <div class="row g-3">
                    <div class="col-12">                            
-                    <label for="text" class="form-label">Email <span style="color: red">*</span></label></br>
+                    <label for="email" class="form-label">Email <span style="color: red">*</span></label></br>
                     <input type="text"  class="email form-control" name="email" id="email" required> 
                   </div>
               
@@ -125,7 +128,7 @@
                     @enderror
                     <div class="row g-3">
                      <div class="col-12">                            
-                      <label for="text" class="form-label">Password <span style="color: red">*</span></label></br>
+                      <label for="password" class="form-label">Password <span style="color: red">*</span></label></br>
                       <input type="password"  class="password form-control" name="password" id="password" required> 
                     </div>
                 
@@ -136,7 +139,7 @@
                 <div class="row g-3">
                   <div class="col-12">                            
                     <label for="text" class="form-label">Mobile <span style="color: red">*</span></label></br>
-                    <input type="text"  class="phone form-control" name="phone" id="phone" maxlength="10" required> 
+                    <input type="number"  class="phone form-control" name="phone" id="phone" placeholder="Mobile no *" maxlength="10" required> 
                   </div>
                
                   <span class="text-danger">
@@ -156,18 +159,17 @@
                   </span>
                </div>   
             </div>  
-            <div class="modal-footer">
+             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" id="submit"   class="btn btn-primary add_empolyee">Submit</button>
             </div>
          </form>
-      </div>    
-    </div> 
-</div> 
-</div>
-
-</div> 
-</div> 
+        </div>    
+       </div> 
+      </div> 
+     </div>
+   </div> 
+  </div> 
 </div> 
 
 <!-- Edit modal Modal -->
@@ -230,7 +232,7 @@
                <div class="row g-3">
                  <div class="col-12">                            
                    <label for="text" class="form-label">Mobile <span style="color: red">*</span></label></br>
-                   <input type="text"  class="phone form-control" name="phone" id="phoneuser" maxlength="10" required> 
+                   <input type="text"  class="phone form-control" name="phone" id="phoneuser" placeholder="Mobile no *" maxlength="10" required> 
                  </div>
               
                  <span class="text-danger">
@@ -248,21 +250,20 @@
                   {{$message}}
                   @enderror
                  </span>
-              </div>   
-           </div>  
-           <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-               <button type="submit" id="submit"   class="btn btn-primary upadte_register">Update</button>
-           </div>
-        </form>
-     </div>    
+                </div>   
+               </div>  
+              <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" id="submit"   class="btn btn-primary upadte_register">Update</button>
+          </div>
+         </form>
+       </div>    
+      </div> 
+     </div> 
+    </div>
    </div> 
-</div> 
-</div>
-
-</div> 
-</div> 
-</div> 
+  </div> 
+ </div> 
 <!-- Delete Modal HTML -->
 
 
@@ -329,6 +330,12 @@
                      $('#addressuser').val(response.registerssusers.address);
               }
            });
+           
         });
+         // Listen for the modal close event
+          $('#myModal').on('hidden.bs.modal', function () {
+               // Clear the form fields
+          $('#myForm')[0].reset();
+      });
 </script>
 @endsection
