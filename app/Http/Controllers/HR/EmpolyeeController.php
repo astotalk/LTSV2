@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Empolyee;
 use App\Models\Department;
+use App\Models\Countries;
+use App\Models\States;
+use App\Models\City;
 use App\Models\Designation;
 use App\Helpers\Helpers;
-
+use Illuminate\Support\Facades\DB;
 
 class EmpolyeeController extends Controller
 {
@@ -19,6 +22,10 @@ class EmpolyeeController extends Controller
      */
     public function employee(Request $request) {
        
+        $country_list = Countries::all();
+        // dd($countries);
+        $StatesList = States::all();
+        $CityList = City::all();
         $DeparmenttmList = Department::all();
         $DesignationList = Designation::all();
         $search = $request['search'] ?? "";
@@ -31,12 +38,25 @@ class EmpolyeeController extends Controller
            $employee = Empolyee::all();
         }
             
-        $data =compact('employee','search','DeparmenttmList','DesignationList');
+        $data =compact('employee','search','DeparmenttmList','DesignationList','country_list','StatesList','CityList');
 
         return view('LTS.hr.employee')->with($data);
 
     }
     
+
+            // county state city select dropdown
+
+          public function getCities(Request $request){
+
+               $response = Http::withHeaders([
+                    'auth_token'=>'emFMsrbNWS2dH7sg_gyFhAUU3m9pmJMGWIeBo7tAaLzFBPOijABATcYIsrwfy1ONV7M',
+                    'user-email'=>'yogesh@latech-solutions.com',
+                ])->get('https://www.universal-tutorial.com/api/getaccesstoken');
+                $data =(array)json_decode($response->body());
+          }
+
+            // county state city select dropdown
 
         public function edit(Request $request, $id )
         {
@@ -92,9 +112,9 @@ class EmpolyeeController extends Controller
             $empolyees->region = $request->input('region');
             $empolyees->city = $request->input('city');
             $empolyees->permanent_address = $request->input('permanent_address');
-            $empolyees->country_id = $request->input('country_id');
-            $empolyees->region_id = $request->input('region_id');
-            $empolyees->city_id = $request->input('city_id');
+            // $empolyees->country_id = $request->input('country_id');
+            // $empolyees->region_id = $request->input('region_id');
+            // $empolyees->city_id = $request->input('city_id');
             $empolyees->status = $request->input('status');
             $empolyees->pin_code = $request->input('pin_code');
             $empolyees->bank_name = $request->input('bank_name');
@@ -103,7 +123,7 @@ class EmpolyeeController extends Controller
             $empolyees->branch_name = $request->input('branch_name');
             $empolyees->ifsc_code = $request->input('ifsc_code');
             $empolyees->save();
-            dd($empolyees);
+            // dd($empolyees);
            
             return redirect()->back()->with('status','Employee Has Been Create successfully');
 
@@ -156,9 +176,9 @@ class EmpolyeeController extends Controller
             $employees->gender = $request->input('gender');
             $employees->pin_code = $request->input('pin_code');
             $employees->permanent_address = $request->input('permanent_address');
-            $employees->country_id = $request->input('country_id');
-            $employees->region_id = $request->input('region_id');
-            $employees->city_id = $request->input('city_id');
+            $employees->country = $request->input('country');
+            $employees->region = $request->input('region');
+            $employees->city = $request->input('city');
             $employees->current_address = $request->input('current_address');
             $employees->desigantion = $request->input('desigantion');
             $employees->department = $request->input('department');
@@ -169,7 +189,7 @@ class EmpolyeeController extends Controller
             $employees->branch_name = $request->input('branch_name');
             $employees->ifsc_code = $request->input('ifsc_code');
             $employees->update(); 
-
+            //dd($employees);
               return redirect()->back()->with('status','Employee Has Been Update successfully');
 
             

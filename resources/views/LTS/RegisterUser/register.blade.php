@@ -49,7 +49,7 @@
                <th><b>Email</b></th> 
                <th><b>Phone</b></th> 
                <th><b>Address</b></th> 
-               <th><b>Employee Name</b></th>
+               <th><b>Department Name</b></th>
                
                <th style="text-align: center;"> <b>Action</b></th>
             </tr>

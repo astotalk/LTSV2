@@ -59,11 +59,11 @@ legend.scheduler-border {
                 </div>
          <!--table start-->
          <div class="card-body">
-          <table id="emplist" class="table table-bordered">
+          <table class="table table-bordered">
           <thead class="thead-dark" >
             <tr>
                <th><b>S.No.</b></th>
-               <th style="white-space: nowrap;"><b>Emp Id </b></th> 
+               <th><b>Emp Id</b></th> 
                <th><b>Name</b></th>
                <th><b>E-mail</b></th> 
                <th><b>Phone no.</b></th>
@@ -80,9 +80,9 @@ legend.scheduler-border {
           @if(!empty($employee))
             @foreach($employee as $emp)
             <tr>
-            <td style="white-space: normal;">{{$emp->id}}</td>
-                <th style="white-space: nowrap;">{{$emp->emp_code}}</th>
-                <th >{{ucfirst($emp->name)}}</th>
+            <td> {{$emp->id}}</td>
+                <th>{{$emp->emp_code}}</th>
+                <th>{{ucfirst($emp->name)}}</th>
                 <th>{{$emp->email}}</th>
                 <th>{{$emp->phone}}</th>
                 <th>{{$emp->joining_date}}</th>
@@ -178,42 +178,31 @@ legend.scheduler-border {
                             <div class="col-6 mt-3"> 
                                 <label for="country" class="form-label">Country <span style="color: red">*</span></label><br>
                                 <select id="country" name="country"  id="country" class="country form-control" > 
-                                  <option value="">Select Country</option>
-                                  @foreach ($country_list as $country)
-                                  <option value="{{ $country->countryname }}">{{ $country->countryname }}</option>
-                                   @endforeach 
+                                  <option value="12">INDIA</option>  
                                </select>
                             </div>
 
                             <div class="col-6">
                                 <label for="inputState" class="form-label">State <span style="color: red">*</span></label>
                                 <select  name="region" id="region" class="region form-control">
-                                  <option value="">Select States</option>
-                                  @foreach ($StatesList as $region)
-                                  <option value="{{ $region->state_name }}">{{ $region->state_name }}</option>
-                                   @endforeach 
-                                  {{-- <option value="DELHI">DELHI</option>
-                                 <option value="DELHI">DELHI</option> --}}
-                            </select>
+                                  <option value="DELHI">DELHI</option>
+                                 <option value="region1">DELHI</option>
+              </select>
                             </div>
                         </div>
-                      <br>
+                                                            <br>
                         <div class="row g-3">
                             <div class="col-6">
                                 <label for="inputCity" class="form-label">City <span style="color: red">*</span></label>
                                 <select  name="city" id="city" class="city form-control">
-                                  <option value="">Select City</option>
-                                  @foreach ($CityList as $city)
-                                  <option value="{{ $city->cityname}}">{{ $city->cityname }}</option>
-                                   @endforeach 
-                                  {{-- <option value="DELHI">DELHI</option>
-                                  <option value="City">City</option> --}}
+                                  <option value="DELHI">DELHI</option>
+                                  <option value="city1">City</option>
                                </select>
                             </div>
 
                             <div class="col-6">
                                 <label for="pincode" class="form-label">Pincode <span style="color: red">*</span></label>
-                                <input type="text"   maxlength="6" class="pin_code  form-control"  name="pin_code" required>
+                                <input type="pin_code"   maxlength="6" class="pin_code form-control"  name="pin_code" required>
                                 
                             </div>
                         </div>
@@ -227,7 +216,7 @@ legend.scheduler-border {
                         </div> 
                     <br>
 
-                        {{-- <div class="row g-3">
+                        <div class="row g-3">
                             <div class="col-6 mt-3"> 
                                 <label for="country" class="form-label">Country <span style="color: red">*</span></label><br>
                                 <select  name="country_id" id="country1" class="country form-control" >   
@@ -240,8 +229,8 @@ legend.scheduler-border {
                                </select>
                             </div>
                         </div>
-                        <br> --}}
-                        {{-- <div class="row g-3">
+                        <br>
+                        <div class="row g-3">
                             <div class="col-6">
                                 <label for="inputCity" class="form-label">City <span style="color: red">*</span></label>
                                 <select  name="city_id" id="city1" class="city_id form-control">
@@ -254,25 +243,25 @@ legend.scheduler-border {
                                 
                             </div>
                         </div>   
-                         <br>     --}}
+                         <br>    
 
                         <div class="row g-3">
                             <div class="col-4">
                                 <label for="emp_id" class="form-label">Designation <span style="color: red">*</span> </label>
                                 <select name="desigantion" class="desigantion   form-control"  id="desigantion" data-live-search="true"  data-size="8" tabindex="null">
-                                  @foreach($DesignationList as $row)
-                                  <option value="{{$row->desigantion}}">{{$row->desigantion }}</option>
-                                    @endforeach
-                            </select>
+                   @foreach($DesignationList as $row)
+                   <option value="{{$row->desigantion}}">{{$row->desigantion }}</option>
+                    @endforeach
+                    </select>
                             </div>
 
                             <div class="col-4">
                                 <label for="select" class="form-label">Department <span style="color: red">*</span> </label>
                                 <select name="department" class="department   form-control"  id="department" data-live-search="true"  data-size="8" tabindex="null">
-                              @foreach($DeparmenttmList as $row)
-                              <option value="{{$row->department}}">{{$row->department}}</option>
-                                @endforeach
-                                </select>
+                   @foreach($DeparmenttmList as $row)
+                   <option value="{{$row->department}}">{{$row->department}}</option>
+                    @endforeach
+                    </select>
                             </div>
                                     
                             <div class="col-4">
@@ -408,38 +397,32 @@ legend.scheduler-border {
                         </div> 
                         <br>
                         <div class="row g-3">
-                          <div class="col-6 mt-3"> 
-                              <label for="country" class="form-label">Country <span style="color: red">*</span></label><br>
-                              <select name="country" class="country_id form-control" id="country_id"> 
-                                  <option value="">Select Country</option> <!-- Add a default option -->
-                                  @foreach ($country_list as $country)
-                                      <option value="{{ $country->countryname }}" {{ $country == $country->countryname ? 'selected' : '' }}>{{ $country->countryname }}</option>
-                                  @endforeach
+                            <div class="col-6 mt-3"> 
+                                <label for="country" class="form-label">Country <span style="color: red">*</span></label><br>
+                                <select id="country2" name="country_id"  class="country_id form-control" >  
+                                  <option value="DELHI">Country</option>
+                                 
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="inputState" class="form-label">State <span style="color: red">*</span></label>
+                                <select  name="region_id" id="region2" class="region_id form-control">
+                                  <option value="DELHI">DELHI</option>
+                                
                               </select>
-                          </div>
-                          <div class="col-6">
-                              <label for="inputState" class="form-label">State <span style="color: red">*</span></label>
-                              <select name="region" id="region_id" class="region_id form-control">
-                                  @foreach ($StatesList as $region)
-                                      <option value="{{ $region->state_name }}" {{ $region == $region->state_name ? 'selected' : '' }}>{{ $region->state_name }}</option>
-                                  @endforeach 
+                            </div>
+                        </div>
+                    <br>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <label for="inputCity" class="form-label">City <span style="color: red">*</span></label>
+                                <select  name="city_id" id="city2" class="city_id form-control">
+                                  <option value="DELHI">DELHI</option>
                               </select>
-                          </div>
-                      </div>
-                      <br>
-                      <div class="row g-3">
-                          <div class="col-6">
-                              <label for="inputCity" class="form-label">City <span style="color: red">*</span></label>
-                              <select name="city" class="city_id form-control" id="city_id">
-                                  @foreach ($CityList as $city)
-                                      <option value="{{ $city->cityname }}" {{ $city == $city->cityname ? 'selected' : '' }}>{{ $city->cityname }}</option>
-                                  @endforeach 
-                              </select>
-                          </div>
-                      
+                            </div>
                             <div class="col-6">
                                 <label for="pincode" class="form-label">Pincode <span style="color: red">*</span></label>
-                                <input type="text" class="form-control" id="pin_codes"  name="pin_code" maxlength="6" placeholder="Enter Pincode" required>
+                                <input type="Pincode" class="form-control" id="Pincode"  maxlength="6" placeholder="Enter Pincode" required>
                             </div>
                         </div>
                      <br>                                                
@@ -450,7 +433,7 @@ legend.scheduler-border {
                             </div>
                         </div> 
                         <br>
-                        {{-- <div class="row g-3">
+                        <div class="row g-3">
                             <div class="col-6 mt-3"> 
                                 <label for="country" class="form-label">Country<span style="color: red">*</span></label><br>
                                 <select id="country3" name="country_id" class="country_id form-control" >   
@@ -462,18 +445,18 @@ legend.scheduler-border {
                             </select>
                             </div>
                         </div>
-                        <br> --}}
-                        {{-- <div class="row g-3">
+                        <br>
+                        <div class="row g-3">
                             <div class="col-6">
                                 <label for="inputCity" class="form-label">City<span style="color: red">*</span></label>
                                 <select  name="city_id" id="city3" class="city_id form-control">
                              </select>
-                            </div> 
+                            </div>
                             <div class="col-6">
                                 <label for="pincode" class="form-label">Pincode <span style="color: red">*</span></label>
                                 <input type="pin_code"   maxlength="6" class="pin_code form-control" id="pin_code1"  name="pin_code" required> 
                             </div>
-                        </div>    --}}
+                        </div>   
                     <br>    
                         <div class="row g-3">
                             <div class="col-4">
@@ -625,14 +608,14 @@ $(document).ready(function(){
                     $('#gender1').val(response.empolyees.gender);  
                     $('#joining_date1').val(response.empolyees.joining_date);    
                     $('#permanent_address1').val(response.empolyees.permanent_address);
-                    $('#country_id').val(response.empolyees.country);
-                    $('#region_id').val(response.empolyees.region);
-                    $('#city_id').val(response.empolyees.city);
+                    $('#country_id1').val(response.empolyees.country_id);
+                    $('#region_id1').val(response.empolyees.region_id);
+                    $('#city_id1').val(response.empolyees.city_id);
                     $('#current_address1').val(response.empolyees.current_address)    
-                    // $('#country1').val(response.empolyees.country);
-                    // $('#region1').val(response.empolyees.region);
-                    // $('#city1').val(response.empolyees.city); 
-                    $('#pin_codes').val(response.empolyees.pin_code);  
+                    $('#country1').val(response.empolyees.country);
+                    $('#region1').val(response.empolyees.region);
+                    $('#city1').val(response.empolyees.city); 
+                    $('#pin_code1').val(response.empolyees.pin_code);  
                     $('#bank_name1').val(response.empolyees.bank_name);   
                     $('#beneficiary_name1').val(response.empolyees.beneficiary_name);
                     $('#account_number1').val(response.empolyees.account_number);   
@@ -642,9 +625,325 @@ $(document).ready(function(){
             }
         });
             });
-            $('#emplist').DataTable();
-          });
+    var selectedCountry = (selectedRegion = selectedCity = "");
+                // This is a demo API key for testing purposes. You should rather request your API key (free) from http://battuta.medunes.net/
+                var BATTUTA_KEY = "00000000000000000000000000000000";
+                // Populate country select box from battuta API
+                url =
+                  "https://battuta.medunes.net/api/country/all/?key=" +
+                  BATTUTA_KEY +
+                  "&callback=?";
 
+                // EXTRACT JSON DATA.
+                $.getJSON(url, function(data) {
+                  console.log(data);
+                  $.each(data, function(index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $("#country").append(
+                      '<option value="' + value.code + '">' + value.name + "</option>"
+                    );
+                  });
+                });
+                // Country selected --> update region list .
+                $("#country").change(function() {
+                  selectedCountry = this.options[this.selectedIndex].text;
+                  countryCode = $("#country").val();
+                  // Populate country select box from battuta API
+                  url =
+                    "https://battuta.medunes.net/api/region/" +
+                    countryCode +
+                    "/all/?key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    $("#region option").remove();
+                    $('#region').append('<option value="">Please select your region</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#region").append(
+                        '<option value="' + value.region + '">' + value.region + "</option>"
+                      );
+                    });
+                  });
+                });
+                // Region selected --> updated city list
+                $("#region").on("change", function() {
+                  selectedRegion = this.options[this.selectedIndex].text;
+                  // Populate country select box from battuta API
+                  countryCode = $("#country").val();
+                  region = $("#region").val();
+                  url =
+                    "https://battuta.medunes.net/api/city/" +
+                    countryCode +
+                    "/search/?region=" +
+                    region +
+                    "&key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    console.log(data);
+                    $("#city option").remove();
+                    $('#city').append('<option value="">Please select your city</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#city").append(
+                        '<option value="' + value.city + '">' + value.city + "</option>"
+                      );
+                    });
+                  });
+                });
+                // city selected --> update location string
+                $("#city").on("change", function() {
+                  selectedCity = this.options[this.selectedIndex].text;
+                  $("#location").html(
+                    "Locatation: Country: " +
+                      selectedCountry +
+                      ", Region: " +
+                      selectedRegion +
+                      ", City: " +
+                      selectedCity
+                  );
+             
+                var selectedCountry = (selectedRegion = selectedCity = "");
+                // This is a demo API key for testing purposes. You should rather request your API key (free) from http://battuta.medunes.net/
+                var BATTUTA_KEY = "00000000000000000000000000000000";
+                // Populate country select box from battuta API
+                url =
+                  "https://battuta.medunes.net/api/country/all/?key=" +
+                  BATTUTA_KEY +
+                  "&callback=?";
+
+                // EXTRACT JSON DATA.
+                $.getJSON(url, function(data) {
+                  console.log(data);
+                  $.each(data, function(index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $("#country1").append(
+                      '<option value="' + value.code + '">' + value.name + "</option>"
+                    );
+                  });
+                });
+                // Country selected --> update region list .
+                $("#country1").change(function() {
+                  selectedCountry = this.options[this.selectedIndex].text;
+                  countryCode = $("#country1").val();
+                  // Populate country select box from battuta API
+                  url =
+                    "https://battuta.medunes.net/api/region/" +
+                    countryCode +
+                    "/all/?key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    $("#region1 option").remove();
+                    $('#region1').append('<option value="">Please select your region</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#region1").append(
+                        '<option value="' + value.region + '">' + value.region + "</option>"
+                      );
+                    });
+                  });
+                });
+                // Region selected --> updated city list
+                $("#region1").on("change", function() {
+                  selectedRegion = this.options[this.selectedIndex].text;
+                  // Populate country select box from battuta API
+                  countryCode = $("#country1").val();
+                  region = $("#region1").val();
+                  url =
+                    "https://battuta.medunes.net/api/city/" +
+                    countryCode +
+                    "/search/?region=" +
+                    region +
+                    "&key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    console.log(data);
+                    $("#city1 option").remove();
+                    $('#city1').append('<option value="">Please select your city</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#city1").append(
+                        '<option value="' + value.city + '">' + value.city + "</option>"
+                      );
+                    });
+                  });
+                });
+                // city selected --> update location string
+                $("#city1").on("change", function() {
+                  selectedCity = this.options[this.selectedIndex].text;
+                  $("#location").html(
+                    "Locatation: Country: " +
+                      selectedCountry +
+                      ", Region: " +
+                      selectedRegion +
+                      ", City: " +
+                      selectedCity
+                  );
+                }); 
+            }); 
+         
+            var selectedCountry = (selectedRegion = selectedCity = "");
+                // This is a demo API key for testing purposes. You should rather request your API key (free) from http://battuta.medunes.net/
+                var BATTUTA_KEY = "00000000000000000000000000000000";
+                // Populate country select box from battuta API
+                url =
+                  "https://battuta.medunes.net/api/country/all/?key=" +
+                  BATTUTA_KEY +
+                  "&callback=?";
+
+                // EXTRACT JSON DATA.
+                $.getJSON(url, function(data) {
+                  console.log(data);
+                  $.each(data, function(index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $("#country3").append(
+                      '<option value="' + value.code + '">' + value.name + "</option>"
+                    );
+                  });
+                });
+                // Country selected --> update region list .
+                $("#country3").change(function() {
+                  selectedCountry = this.options[this.selectedIndex].text;
+                  countryCode = $("#country3").val();
+                  // Populate country3 select box from battuta API
+                  url =
+                    "https://battuta.medunes.net/api/region/" +
+                    countryCode +
+                    "/all/?key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    $("#region3 option").remove();
+                    $('#region3').append('<option value="">Please select your region</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#region3").append(
+                        '<option value="' + value.region + '">' + value.region + "</option>"
+                      );
+                    });
+                  });
+                });
+                // Region selected --> updated city list
+                $("#region3").on("change", function() {
+                  selectedRegion = this.options[this.selectedIndex].text;
+                  // Populate country select box from battuta API
+                  countryCode = $("#country3").val();
+                  region = $("#region3").val();
+                  url =
+                    "https://battuta.medunes.net/api/city/" +
+                    countryCode +
+                    "/search/?region=" +
+                    region +
+                    "&key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    console.log(data);
+                    $("#city3 option").remove();
+                    $('#city3').append('<option value="">Please select your city</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#city3").append(
+                        '<option value="' + value.city + '">' + value.city + "</option>"
+                      );
+                    });
+                  });
+                });
+                // city selected --> update location string
+                $("#city3").on("change", function() {
+                  selectedCity = this.options[this.selectedIndex].text;
+                  $("#location").html(
+                    "Locatation: Country: " +
+                      selectedCountry +
+                      ", Region: " +
+                      selectedRegion +
+                      ", City: " +
+                      selectedCity
+                  );
+                }); 
+            }); 
+                var selectedCountry = (selectedRegion = selectedCity = "");
+                // This is a demo API key for testing purposes. You should rather request your API key (free) from http://battuta.medunes.net/
+                var BATTUTA_KEY = "00000000000000000000000000000000";
+                // Populate country select box from battuta API
+                url =
+                  "https://battuta.medunes.net/api/country/all/?key=" +
+                  BATTUTA_KEY +
+                  "&callback=?";
+
+                // EXTRACT JSON DATA.
+                $.getJSON(url, function(data) {
+                  console.log(data);
+                  $.each(data, function(index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $("#country2").append(
+                      '<option value="' + value.code + '">' + value.name + "</option>"
+                    );
+                  });
+                });
+                // Country selected --> update region list .
+                $("#country2").change(function() {
+                  selectedCountry = this.options[this.selectedIndex].text;
+                  countryCode = $("#country2").val();
+                  // Populate country select box from battuta API
+                  url =
+                    "https://battuta.medunes.net/api/region/" +
+                    countryCode +
+                    "/all/?key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    $("#region2 option").remove();
+                    $('#region2').append('<option value="">Please select your region</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#region2").append(
+                        '<option value="' + value.region + '">' + value.region + "</option>"
+                      );
+                    });
+                  });
+                });
+                // Region selected --> updated city list
+                $("#region2").on("change", function() {
+                  selectedRegion = this.options[this.selectedIndex].text;
+                  // Populate country select box from battuta API
+                  countryCode = $("#country2").val();
+                  region = $("#region2").val();
+                  url =
+                    "https://battuta.medunes.net/api/city/" +
+                    countryCode +
+                    "/search/?region=" +
+                    region +
+                    "&key=" +
+                    BATTUTA_KEY +
+                    "&callback=?";
+                  $.getJSON(url, function(data) {
+                    console.log(data);
+                    $("#city2 option").remove();
+                    $('#city2').append('<option value="">Please select your city</option>');
+                    $.each(data, function(index, value) {
+                      // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                      $("#city2").append(
+                        '<option value="' + value.city + '">' + value.city + "</option>"
+                      );
+                    });
+                  });
+                });
+                // city selected --> update location string
+                $("#city2").on("change", function() {
+                  selectedCity = this.options[this.selectedIndex].text;
+                  $("#location").html(
+                    "Locatation: Country: " +
+                      selectedCountry +
+                      ", Region: " +
+                      selectedRegion +
+                      ", City: " +
+                      selectedCity
+                  );
+                });  
           
 
 </script>

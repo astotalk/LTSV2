@@ -175,6 +175,8 @@ Route::get('/', function () {
     Route::POST('/employee/destroy/', [EmpolyeeController::class,'destroy'])->name('destroy');
     Route::put('/employee/update/', [EmpolyeeController::class,'update'])->name('update');
     Route::get('/employee/edit/{id}', [EmpolyeeController::class,'edit']);
+    Route::get('/getStates/{country_id}', [EmpolyeeController::class,'getStates']);
+    Route::get('/getCities/{state_id}', [EmpolyeeController::class,'getCities']);
 
 ///////////////////////////////Holiday///////////////////////////////
 
@@ -364,6 +366,8 @@ Route::get('/', function () {
   Route::get('/RegisterUser/registerjoinemp/', [RegisterController::class,'registerjoinemp'])->name('registerjoinemp');
 
   Route::get('/Profile/profile_crm', [ProfileEmpController::class,'profile_crm'])->name('profile_crm');
+
+  
 
  
 });
