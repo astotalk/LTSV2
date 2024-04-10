@@ -334,6 +334,7 @@
                                        <a class="dropdown-item" href="settings.php">Settings</a>
                                        <a class="dropdown-item" href="help.php">Help</a>
                                        <a class="dropdown-item" href="{{ url('/RegisterUser/register') }}">Register</a>
+                                       <a class="dropdown-item" href="{{ url('/Students/students') }}">New Students</a>
                                        
                                        <a class="dropdown-item" href="{{route('logout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                     </div>

@@ -30,7 +30,7 @@ class RegisterController extends Controller
             ->leftJoin('department', 'registerssusers.id', '=', 'department.id')
             ->select('registerssusers.*', 'department.department')
             ->get();
-            //   dd($leftJoinResult);
+            //  dd($data);
              
               return view('LTS.RegisterUser.register', compact('data'));
       

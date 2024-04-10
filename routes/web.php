@@ -17,6 +17,8 @@ use App\Http\Controllers\Registration;
 use App\Http\Controllers\RTO;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Profile;
+use App\Http\Controllers\Api;
+
 
 
 
@@ -131,6 +133,11 @@ use App\Http\Controllers\Login\{
         ProfileEmpController
     };
 
+    use  App\Http\Controllers\Api\{
+        StudentsController
+    };
+
+
     
 Route::get('/', function () {
     return view('welcome');
@@ -140,6 +147,7 @@ Route::get('/', function () {
     Route ::group(['meddleware'=>'/LTS/login'], function(){  
     Route::get('/', [LoginController::class,'getlogin'])->name('getlogin');
     Route::get('/LTS/login', [LoginController::class,'getlogin'])->name('getlogin');
+    // Route::post('/LTS/register', [LoginController::class,'postlogin'])->name('postlogin');
     Route::post('/LTS/login', [LoginController::class,'postlogin'])->name('postlogin');
     Route::get('/LTS/dashboard', [ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/LTS/logout', [ProfileController::class,'logout'])->name('logout');
@@ -356,17 +364,21 @@ Route::get('/', function () {
    Route::get('/RTO/rtoreport/', [RtoreportController::class,'rtoreport'])->name('rtoreport');   
    Route::post('/RTO/GetRtoDetail/', [RTOController::class,'GetRtoDetail'])->name('rtoGetRtoDetailreport');   
 
-//    Route::get('./RegisterUser/register', 'Api\RegisterController@register');    
+    //   New Register Login page
+
    Route::get('/RegisterUser/register', [RegisterController::class,'register'])->name('register');
    Route::POST('/register/registerstore', [RegisterController::class,'registerstore'])->name('registerstore');
    Route::get('/register/edit/{id}', [RegisterController::class,'edit'])->name('edit');
    Route::put('/register/update/', [RegisterController::class,'update'])->name('update');
    Route::POST('/register/destroy/', [RegisterController::class,'destroy'])->name('destroy');
+   Route::get('/RegisterUser/registerjoinemp/', [RegisterController::class,'registerjoinemp'])->name('registerjoinemp');
 
-  Route::get('/RegisterUser/registerjoinemp/', [RegisterController::class,'registerjoinemp'])->name('registerjoinemp');
+   Route::get('/Profile/profile_crm', [ProfileEmpController::class,'profile_crm'])->name('profile_crm');
 
-  Route::get('/Profile/profile_crm', [ProfileEmpController::class,'profile_crm'])->name('profile_crm');
 
+
+   Route::get('/Students/students', [StudentsController::class,'student_list'])->name('student_list');
+//    Route::get('/students/student_list', [StudentsController::class,'student_list'])->name('student_list');
   
 
  

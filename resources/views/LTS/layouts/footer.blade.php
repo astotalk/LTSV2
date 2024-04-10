@@ -9,7 +9,7 @@
     color: #020a12;
     padding: 15px 10px;
     background-color: #1ed085;
-    width: 1687px;
+    width: 1706px;
     height: 51px;
     margin-bottom: 43px;
     margin-left: 10p;
@@ -40,7 +40,7 @@
 
 <div class="container-fluid1">
    <div class="footer">
-         <p style="margin-right: 509px;color:white;margin-left: -107px;">Copyright <?php $year = date("Y"); echo $year; ?> Designed by html.design. All rights reserved.<br>
+         <p style="margin-right: 509px;color:white;margin-left:38px;">Copyright <?php $year = date("Y"); echo $year; ?> Designed by html.design. All rights reserved.<br>
             Distributed By: </p>
        
    </div>

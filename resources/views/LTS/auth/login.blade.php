@@ -88,8 +88,6 @@
                </div>
             </div>
          </div>
-
-         
       </div>
       <!-- jQuery -->
       <script src="{{url('lts_assets/js/jquery.min.js')}}"></script>

@@ -98,15 +98,9 @@ legend.scheduler-border {
 
             @endforeach
             @endif
-
-            
-
-           
           </tbody>
           </table>
          </div>
-
-       
       </div>
     
                    

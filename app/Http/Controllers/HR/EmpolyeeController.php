@@ -47,14 +47,14 @@ class EmpolyeeController extends Controller
 
             // county state city select dropdown
 
-          public function getCities(Request $request){
+    public function getCities(Request $request){
 
-               $response = Http::withHeaders([
-                    'auth_token'=>'emFMsrbNWS2dH7sg_gyFhAUU3m9pmJMGWIeBo7tAaLzFBPOijABATcYIsrwfy1ONV7M',
-                    'user-email'=>'yogesh@latech-solutions.com',
-                ])->get('https://www.universal-tutorial.com/api/getaccesstoken');
-                $data =(array)json_decode($response->body());
-          }
+        $response = Http::withHeaders([
+            'auth_token'=>'emFMsrbNWS2dH7sg_gyFhAUU3m9pmJMGWIeBo7tAaLzFBPOijABATcYIsrwfy1ONV7M',
+            'user-email'=>'yogesh@latech-solutions.com',
+        ])->get('https://www.universal-tutorial.com/api/getaccesstoken');
+        $data =(array)json_decode($response->body());
+    }
 
             // county state city select dropdown
 
@@ -157,9 +157,6 @@ class EmpolyeeController extends Controller
     public function update(Request $request)
     {
 
-       
-        
-
             //    echo "<pre>"; print_r($request->all()); 
             // die('');
       
@@ -190,7 +187,7 @@ class EmpolyeeController extends Controller
             $employees->ifsc_code = $request->input('ifsc_code');
             $employees->update(); 
             //dd($employees);
-              return redirect()->back()->with('status','Employee Has Been Update successfully');
+            return redirect()->back()->with('status','Employee Has Been Update successfully');
 
             
     }
