@@ -19,5 +19,6 @@ class Registeruser extends Model
          'password',
          'phone',
          'address',
+         'image',
     ];
 }

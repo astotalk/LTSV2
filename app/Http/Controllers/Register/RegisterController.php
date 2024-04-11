@@ -80,6 +80,8 @@ class RegisterController extends Controller
             'password' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'image' => 'required',
+            
 
         ]);
 
@@ -93,6 +95,15 @@ class RegisterController extends Controller
         $registerssusers->original_password = $request['password'];
         $registerssusers->phone = $request['phone'];
         $registerssusers->address = $request['address'];
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('lts_assets/images/layout_img/', $filename);
+            $registerssusers->image = $filename;
+        }
+
         $registerssusers->save();
         // dd($registerssusers);
         return redirect()->back()->with('status','Register Has Been Added successfully');

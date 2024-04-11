@@ -21,6 +21,8 @@ class CreateRegisterssuserTable extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('address');
+            $table->string('image');
+            
 
             $table->timestamps();
         });

@@ -48,7 +48,8 @@
                <th><b>LastName</b></th> 
                <th><b>Email</b></th> 
                <th><b>Phone</b></th> 
-               <th><b>Address</b></th> 
+               <th><b>Address</b></th>
+               <th><b>Image</b></th> 
                <th><b>Department Name</b></th>
                
                <th style="text-align: center;"> <b>Action</b></th>
@@ -68,6 +69,9 @@
                <th>{{($registerssusers->email)}}</th>
                <th>{{($registerssusers->phone)}}</th>
                <th>{{($registerssusers->address)}}</th>
+               <th>
+                <img src="{{ asset('lts_assets/images/layout_img/' . $registerssusers->image) }}" alt="User Image" style="width:100px;height:89px;">
+                </th>
                <th>{{ $registerssusers->department }}</th>
                <th>
                   <button type="button"  value="{{$registerssusers->id}}" style="margin-top:8px;margin-left:5px;width:52px;height:37px;" class="btn btn-primary editbtn btn-sm">Edit</button>
@@ -85,7 +89,7 @@
 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-    <Form id="myForm"  action="{{route('registerstore')}}" method="POST">
+    <Form id="myForm"  action="{{route('registerstore')}}" method="POST"  enctype="multipart/form-data">
      @csrf
     <ul id="savefrom_errList"></ul>
       <div class="modal-header">Register User Management</h5>
@@ -144,7 +148,7 @@
                
                   <span class="text-danger">
                     @error('phone')
-                    {{$message}}
+                    {{$phone}}
                     @enderror
                     <div class="row g-3">
                     <div class="col-12">                            
@@ -153,7 +157,19 @@
                     </div>
                    </div>
                   <span class="text-danger">
-                   @error('password')
+                   @error('address')
+                   {{$message}}
+                   @enderror
+                  </span>
+                  <div class="row g-3">
+                    <div class="col-12">                            
+                    <label for="text" class="form-label">Upload Image <span style="color: red">*</span></label></br>
+                    <input type="file" name="image"  class="image form-control" id="images" required>
+                  </div>
+                    </div>
+                   </div>
+                  <span class="text-danger">
+                   @error('address')
                    {{$message}}
                    @enderror
                   </span>
