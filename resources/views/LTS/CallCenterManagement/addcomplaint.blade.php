@@ -143,7 +143,7 @@
                            <option value="Service">Service</option>
                            <option value="Installation">Installation</option>
                         </select>
-                     </div>
+                     </div><br>
                            
                      <div class="col-12">
                         <label for="text" class="form-label">Company Detail<span style="color: red">*</span></label>
