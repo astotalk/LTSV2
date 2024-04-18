@@ -31,22 +31,18 @@
    </head>
 
 <body class="inner_page login">
-   <div class="full_container">
+      <div class="full_container">
          <div class="container">
             <div class="center verticle_center full_height">
-            @if(session('error'))
-        <div class="text-danger text-center">{{session('error')}}</div>
-        @endif
-      
                <div class="login_section">
                   <div class="logo_login">
                      <div class="center">
-                        
-                        <img width="210" src="{{url('lts_assets/images/logo/logo.png')}}" alt="#" />
-                        
+                        <img width="210" src="{{url('lts_assets/images/logo/logo.png')}}" alt="#" /> 
                      </div>
                   </div>
-                  
+                  @if(session('error'))
+                  <div class="text-danger text-center" style="margin-top:32px;">{{session('error')}}</div>
+                   @endif
                   <div class="login_form">
                      
                   <form action="{{route('postlogin')}}" method="post">
@@ -54,9 +50,7 @@
                            <div class="text-success text-center">{{session('success')}}</div>
                            @endif
                      @csrf
-                     
                         <fieldset>
-                           
                            <div class="field">
                          
                               <label class="label_field">Email Address</label>
@@ -69,15 +63,15 @@
                               <label class="label_field">Password</label>
                               <input  name="password" type="password" class="password form-control" placeholder="Password">
                            </div>
-                           @error('password')
-                        <div class="textdanger">{{$message}}</div>
-                        @enderror
-                           <div class="field">
+                              @error('password')
+                           <div class="textdanger">{{$message}}</div>
+                              @enderror
+                              <div class="field">
                               <label class="label_field hidden">hidden label</label>
                               <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
                               <a class="forgot" href="">Forgotten Password?</a>
-                           </div>
-                           <div class="field margin_0">
+                             </div>
+                             <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
                               <button type="submit" class="main_bt">Sing In</button>
                               <button  type="submit" class="main_bt"><a href="#">Sing Up</a> </button>

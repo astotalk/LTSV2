@@ -1,49 +1,32 @@
 <style>
    
-.footer p {
-    margin: 0;
-    line-height: normal;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 259;
-    color: #020a12;
-    padding: 15px 10px;
-    background-color: #1ed085;
-    width: 1706px;
-    height: 51px;
-    margin-bottom: 43px;
-    margin-left: 10p;
-}
-.footer {
-    height: 70px;
-    background: ##645d5d;
-    margin-top: 30px;
-    margin-bottom:20px;
-    box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
-    border-radius: 5px;
-    width:1500px;
- 
-  padding-bottom:10px;
-}
-
 .container-fluid1 {
-    position: fixed;
-    bottom: 0;
-    height: 80px;
-    margin-left: -38px;
-    width:1500px;
-}
+      position: relative;
+      min-height: 100vh; /* Set minimum height to the viewport height */
+      padding-bottom: 60px; /* Set padding bottom to accommodate the fixed footer */
+  }
+  .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #372656; /* Set your desired background color */
+      padding: 10px 0;
+      text-align: center;
+      color: white;
+  }
 
 </style>
 
 <!-- footer -->
 
 <div class="container-fluid1">
-   <div class="footer">
-         <p style="margin-right: 509px;color:white;margin-left:38px;">Copyright <?php $year = date("Y"); echo $year; ?> Designed by html.design. All rights reserved.<br>
-            Distributed By: </p>
-       
-   </div>
+  <!-- Your content here -->
+</div>
+<div class="footer">
+  <p style="color:white;margin-left:91px;">
+      Copyright <?php $year = date("Y",strtotime("-1 year")); echo $year; ?>-<?php $year = date("Y"); echo $year; ?> Designed by Latech All rights reserved.<br>Distributed By:Yogesh 
+  </p>
 </div>
             
 
