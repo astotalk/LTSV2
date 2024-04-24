@@ -33,14 +33,14 @@
          <nav class="navbar navbar-light bg-light">
             <form method="get"  class="form-inline">
             <a class="btn btn-danger text-white" href="{{route('dashboard')}}" role="button">Back</a> &nbsp;&nbsp;
-            <input  type="search"  name="search" id="" class="form-control" placeholder="Search Department"  value= "{{$search}}">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            {{-- <input  type="search"  name="search" id="" class="form-control" placeholder="Search Department"  value= "{{$search}}">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
             </form>
                  
        </div>
        <!--table start-->
        <div class="card-body">
-         <table class="table table-bordered">
+         <table id="student_data" class="table table-bordered">
                <thead class="thead-dark">
                   <tr>
                      <th><b>S.No.</b></th>
@@ -84,3 +84,12 @@
        </div>
       
      @endsection
+
+     @section('scripts')
+      <script>  
+      $(document).ready(function(){
+
+         $('#student_data').DataTable();    
+      });
+      </script>
+@endsection

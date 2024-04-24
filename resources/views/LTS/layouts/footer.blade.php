@@ -19,15 +19,14 @@
 </style>
 
 <!-- footer -->
-
 <div class="container-fluid1">
   <!-- Your content here -->
 </div>
-<div class="footer">
+ <div class="footer">
   <p style="color:white;margin-left:91px;">
-      Copyright <?php $year = date("Y",strtotime("-1 year")); echo $year; ?>-<?php $year = date("Y"); echo $year; ?> Designed by Latech All rights reserved.<br>Distributed By:Yogesh 
+      Copyright <?php $year = date("Y",strtotime("-1 year")); echo $year; ?>-<?php $year = date("Y"); echo $year; ?> Designed by Latech All rights reserved.<br>Developer By:Yogesh Kumar
   </p>
-</div>
+ </div>
             
 
           
@@ -79,7 +78,6 @@
 <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>

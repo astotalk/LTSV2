@@ -18,6 +18,9 @@ use App\Http\Controllers\RTO;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Profile;
 use App\Http\Controllers\Api;
+use App\Http\Controllers\File;
+
+
 
 
 
@@ -137,6 +140,12 @@ use App\Http\Controllers\Login\{
         StudentsController
     };
 
+
+    use  App\Http\Controllers\File\{
+        FileController
+    };
+
+    
 
     
 Route::get('/', function () {
@@ -381,6 +390,10 @@ Route::get('/', function () {
 //    Route::get('/students/student_list', [StudentsController::class,'student_list'])->name('student_list');
   
 
+   Route::get('/File/fileupload', [FileController::class,'file_upload'])->name('file_upload');
+   Route::post('/File/upload', [FileController::class,'upload'])->name('upload');
+//    Route::post('/File/upload', 'FileController@upload')->name('upload');
+   
  
 });
 
